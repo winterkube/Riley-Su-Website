@@ -1,0 +1,96 @@
+
+body{
+    background-image: url("/images/backgroundsu.jpg");
+    background-attachment: fixed;
+
+}
+
+h1{
+    
+    color:rgb(61, 79, 129);
+    font-family:"Lexend";
+    font-size: 100px;
+
+
+    border-style: outset;
+    border-width: 8px;
+    border-color: rgb(137, 168, 255);
+    padding: 10px;
+
+
+}
+
+h2{
+
+    color:rgb(58, 62, 110);
+    font-family:"Lexend";
+    font-size: 30px;
+
+}
+
+h3{
+
+    border: solid;
+    color:rgb(41, 48, 63);
+    font-family:"Lexend";
+    font-size: 80px;
+    padding: 10px;
+
+
+
+}
+
+b1{
+    font-family:"Lexend";
+    font-size: 30px;
+
+    position: relative;
+    bottom: 15px;
+
+}
+
+#slides{
+
+    border: outset;
+    border-width: 10px;
+    border-color: rgb(212, 212, 212);
+    padding: 5px;
+
+    background-color: white;
+    width: 533px;
+    height: 300px;
+
+    margin-left: 250px;
+
+}
+
+
+#box1{
+
+   position: relative;
+   left: 580px;
+   bottom: 300px;
+   
+   color:rgb(75, 75, 75);
+   font-family:"Lexend";
+   font-size: 35px;
+   padding: 10px;
+
+   width: 1000px;
+
+}
+
+#box2{
+
+    position: relative;
+    left: 580px;
+    bottom: 300px;
+    
+    color:rgb(75, 75, 75);
+    font-family:"Lexend";
+    font-size: 25px;
+    padding: 10px;
+ 
+    width: 500px;
+ 
+ }
