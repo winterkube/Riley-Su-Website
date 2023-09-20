@@ -1,6 +1,6 @@
 
 body{
-    background-image: url("./images/backgroundsu.jpg");
+    background-image: url("/images/backgroundsu.jpg");
     background-attachment: fixed;
 
 }
@@ -60,7 +60,7 @@ b1{
     width: 533px;
     height: 300px;
 
-    margin-left: 250px;
+    margin-left: 15%;
 
 }
 
@@ -68,7 +68,7 @@ b1{
 #box1{
 
    position: relative;
-   left: 580px;
+   left: 115%;
    bottom: 300px;
    
    color:rgb(75, 75, 75);
@@ -76,14 +76,14 @@ b1{
    font-size: 35px;
    padding: 10px;
 
-   width: 1000px;
+   width: 800px;
 
 }
 
 #box2{
 
     position: relative;
-    left: 580px;
+    left: 115%;
     bottom: 300px;
     
     color:rgb(75, 75, 75);
@@ -91,6 +91,6 @@ b1{
     font-size: 25px;
     padding: 10px;
  
-    width: 500px;
+    width: 400px;
  
  }
