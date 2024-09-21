@@ -1,0 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap");
+
+
+.misc {
+    text-align: center;
+    padding: 20px;
+}
+
+.misc h1 {
+    text-align: center;
+    font-size: 70px;
+    font-family: Lexend, serif;
+
+}
+
+.misc p {
+    font-size: 25px;
+    font-family: Lexend, serif;
+    text-align: left;
+    padding-left: 7%;
+    padding-right: 30%;
+}
+
+.misc p2 {
+    font-size: 20px;
+    font-family: Lexend, serif;
+}
+
+.misc h2 {
+    text-align: left;
+    font-size: 50px;
+    font-family: Lexend, serif;
+
+
+    padding-left: 7%;
+}

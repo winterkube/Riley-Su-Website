@@ -1,0 +1,52 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap");
+
+
+.home {
+    text-align: center;
+    padding: 20px;
+}
+
+.home wrapper {
+    max-width: 75%;
+    margin: auto;
+}
+
+
+.home h1 {
+    text-align: center;
+    font-size: 70px;
+    font-family: Lexend, serif;
+
+}
+
+.home p {
+    font-size: 25px;
+    font-family: Lexend, serif;
+    text-align: left;
+    padding-left: 7%;
+    padding-right: 40%;
+}
+
+.home p3 {
+    font-size: 25px;
+    font-family: Lexend, serif;
+    text-align: center;
+}
+
+.home p2 {
+    font-size: 18px;
+    font-family: Lexend, serif;
+    text-align: left;
+    padding-right: 48%;
+}
+
+.home h2 {
+    font-size: 50px;
+    font-family: Lexend, serif;
+
+    position: relative;
+    text-align: left;
+    padding-left: 7%;
+}
+

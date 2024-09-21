@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap");
+
+
+.exp {
+    text-align: center;
+    padding: 20px;
+}
+
+.exp h1 {
+    text-align: center;
+    font-size: 70px;
+    font-family: Lexend, serif;
+
+}
+
+.exp p {
+    font-size: 25px;
+    font-family: Lexend, serif;
+}
+
+.exp p2 {
+    font-size: 20px;
+    font-family: Lexend, serif;
+}
+
+.exp h2 {
+    text-align: left;
+    font-size: 50px;
+    font-family: Lexend, serif;
+    padding-left: 7%;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 18px;
+    padding-right: 40%;
+    padding-left: 10%;
+    padding-bottom: 15px;
+}
+
+.skill {
+    display: flex;
+    flex: 0 100 25%; /* Adjust this based on the number of visible skills */
+    flex-direction: column;
+    align-items: center;
+    background-color: #a2f5ff;
+    border-radius: 10px;
+    padding: 10px;
+    width: 60px;
+}
+
+.skill img {
+    border-radius: 5%;
+    background-color: white;
+    padding: 10px;
+    width: 75px;
+}
+
+.skill p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-family: Lexend, 'serif';
+
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #c0a5f3;
+    border-radius: 10px;
+    padding: 10px;
+    width: 350px;
+    text-decoration: none;
+    color: white;
+}
+
+.project-card img {
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+}
+
+.project-info {
+    margin-top: 10px;
+}
+
+.project-info h3 {
+    font-family: Lexend, serif;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.project-info p {
+    font-size: 20px;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden; /* Make sure overflow is hidden to create the sliding effect */
+    padding-right: 20%;
+    padding-left: 20%;
+    padding-bottom: 25px;
+    gap: 18px;
+}
+
+.carousel-button {
+    background-color: #162447;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-100%);
+}
+
+.carousel-button.left {
+    left: 10%;
+}
+
+.carousel-button.right {
+    right: 10%;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 140%;
+    padding: 15px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Smooth transition */
+    will-change: transform;
+    padding: 10px;
+}

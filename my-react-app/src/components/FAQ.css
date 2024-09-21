@@ -1,0 +1,50 @@
+/* src/components/FAQ.css */
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap");
+
+
+.wrapper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: "Lexend", serif;
+}
+
+.faq {
+    margin: 1em 0;
+    font-family: "Lexend", serif;
+}
+
+.wrapper h2 {
+    text-align: center;
+    font-size: 50px;
+    font-family: Lexend, serif;
+}
+
+.accordion {
+    width: 100%;
+    padding: 1em;
+    text-align: left;
+    background: #f1f1f1;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: "Lexend", serif;
+    font-size: 20px;
+}
+
+.accordion.active {
+    background: #ccc;
+}
+
+.panel {
+    padding: 0 2em;
+    display: none;
+    background: #f9f9f9;
+    text-align: left;
+    overflow: hidden;
+    font-family: Lexend, serif;
+
+}
