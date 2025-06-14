@@ -1,7 +1,7 @@
 import React from "react";
 import './contact.css';
 
-function Contact() {
+function Contact({goBack}) {
     return (
         <div className="contact">
 
@@ -10,8 +10,12 @@ function Contact() {
             <p> LinkedIn: https://www.linkedin.com/in/riley-su-a47b1521a/ </p>
             <p> GitHub: https://github.com/winterkube </p>
             <p> Instagram: @winter.kube </p>
-            <p> Discord: @xx_the_cool_pro_gaming_96_xx</p>
+            <p> Discord: @winter.kube</p>
 
+
+            <button className="back-button" onClick={goBack}>
+                ← Back
+            </button>
 
         </div>
     );

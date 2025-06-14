@@ -1,43 +1,115 @@
-.App {
-  text-align: center;
+.screen-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Enter: start slightly down & transparent */
+.screen-enter {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Enter-active: slide up into place & fade in */
+.screen-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Exit: fully visible & in place */
+.screen-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Exit-active: slide up away & fade out */
+.screen-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms ease-in, transform 300ms ease-in;
+}
+
+/* You’ll already have these from before: */
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  background: white;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  overflow: hidden;
+
 }
 
-.App-link {
-  color: #61dafb;
+/* Menu styling… */
+.menu-screen {
+
+  text-align: center; }
+.menu-title {
+  font-family: Lexend, sans-serif;
+  position: absolute;
+  left: 20%;
+  top: 7%;
+  font-size: 4.5rem;
+  margin-bottom: 30px;
+}
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  right: 15%;
+  top: 15%;
+  position: absolute;
+}
+.menu-buttons button {
+  font-family: Lexend, sans-serif;
+  font-size: 30px;
+
+  /*right: 20%;*/
+
+  background: #444;
+  border: 2px solid #eee;
+  color: #eee;
+  padding: 8px 16px;
+  cursor: pointer;
+  /*margin-right: 30%;*/
+  width: 250px;
+  height: 65px;
+  transition: background 0.2s;
+}
+.menu-buttons button:hover {
+
+  background: #666;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Section and back button… */
+.section-screen {
+  max-width: 80%;
+  text-align: left;
 }
-
-body {
-  padding-bottom: 100px;
+.section-screen h2 {
+  font-family: sans-serif;
+  margin-bottom: 12px;
+}
+.section-screen p {
+  line-height: 1.4;
+}
+.back-button {
+  top: 10%;
+  right: 10%;
+  position: absolute;
+  background: #444;
+  border: 2px solid #eee;
+  color: #eee;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: Lexend, serif;
+  font-size: 20px;
+  transition: background 0.2s;
+}
+.back-button:hover {
+  background: #666;
 }

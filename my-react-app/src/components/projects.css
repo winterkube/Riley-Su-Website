@@ -1,0 +1,95 @@
+/* make this the positioning context for the back button */
+.projects-carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 4% 5%;
+}
+
+/* arrows */
+.carousel-btn {
+    background: grey;
+    border: none;
+    font-size: 2.5rem;
+    color: #eee;
+    cursor: pointer;
+    padding: 0 10px;
+    transition: color 0.2s;
+    z-index: 1;
+}
+.carousel-btn:hover {
+    color: white;
+}
+
+/* mask out everything but VISIBLE cards */
+.carousel-window {
+    overflow: hidden;
+}
+
+/* the long track we slide left/right */
+.carousel-track {
+    display: flex;
+    gap: 20px; /* must match GAP */
+}
+
+/* each card */
+.project-card {
+    flex: 0 0 250px; /* must match ITEM_W */
+    display: flex;
+    flex-direction: column;
+    background: #c0a5f3;
+    border-radius: 10px;
+    padding: 9px;
+    height: 380px;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.project-info {
+    margin-top: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+}
+
+.project-info h3 {
+    font-family: Lexend, serif;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.project-info p {
+    font-size: 16px;
+    flex: 1;
+}
+
+/* back button in the top-right corner */
+.back-button {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    transform: translate(120%, -120%);
+    background: #444;
+    border: 2px solid #eee;
+    color: #eee;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-family: sans-serif;
+    transition: background 0.2s;
+}
+.back-button:hover {
+    background: #666;
+}

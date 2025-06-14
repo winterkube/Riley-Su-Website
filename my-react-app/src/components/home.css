@@ -4,7 +4,7 @@
 
 .home {
     text-align: center;
-    padding: 20px;
+    padding: 15px;
 }
 
 .home wrapper {
@@ -15,7 +15,7 @@
 
 .home h1 {
     text-align: center;
-    font-size: 70px;
+    font-size: 50px;
     font-family: Lexend, serif;
 
 }
@@ -29,7 +29,7 @@
 }
 
 .home p3 {
-    font-size: 25px;
+    font-size: 23px;
     font-family: Lexend, serif;
     text-align: center;
 }
@@ -42,7 +42,7 @@
 }
 
 .home h2 {
-    font-size: 50px;
+    font-size: 40px;
     font-family: Lexend, serif;
 
     position: relative;

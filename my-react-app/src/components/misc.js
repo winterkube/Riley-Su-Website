@@ -1,7 +1,7 @@
 import React from "react";
 import './misc.css';
 
-function Misc() {
+function Misc({goBack}) {
     return (
         <div className="misc">
 
@@ -12,6 +12,9 @@ function Misc() {
             <p> Additionally, I produce electronic music in my spare time as a hobby. You can see my works on my
                 newgrounds page:</p>
 
+            <button className="back-button" onClick={goBack}>
+                ← Back
+            </button>
 
         </div>
     );

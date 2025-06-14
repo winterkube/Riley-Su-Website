@@ -18,7 +18,7 @@ import ubcrapid from './images/ubcrapid.png';
 import log_logo from './images/log logo.png';
 
 
-const Exp = () => {
+const Exp = ({ goBack }) => {
         const skills = [
                 {img: htmlLogo, title: 'HTML'},
                 {img: css, title: 'CSS'},
@@ -34,7 +34,7 @@ const Exp = () => {
                 {img: mysql, title: 'MySQL'}
         ];
     const [index, setIndex] = useState(0);
-    const visibleSkills = 6;
+    const visibleSkills = 8;
     const trackRef = useRef(null);
 
     const handlePrevClick = () => {
@@ -80,56 +80,11 @@ const Exp = () => {
     const translateX = -index * 0; // Adjust based on the width percentage of each skill
 
 
-    const projects = [
-            {
-             img: ubcrapid,
-                title: 'UBC Rapid',
-                description: 'I am currently a part of the UBC Rapid Design team, where I work as part of the web dev subteam.',
-                link: 'https://ubc-rapid.com/#/'
-            },
-            {
-                img: log_logo,
-                title: 'LOG Website',
-                description: 'I am leading a passion project amongst my friends for a free online gaming website. Currently still a WIP.',
-                link: 'https://ubc-rapid.com/#/'
-            },
-            {
-                img: ubcrapid,
-                title: 'StormHacks 2024',
-                description: 'I participated in the StormHacks 2024 Hackathon with my friends where we tried building a chess game with AI generated pieces.',
-                link: 'https://ubc-rapid.com/#/'
-            },
-            {
-                img: ubcrapid,
-                title: 'Mountain Madness 2024',
-                description: 'I am leading a passion project amongst my friends for a free online gaming website. Currently still a WIP.',
-                link: 'https://ubc-rapid.com/#/'
-            },
-            {
-                img: ubcrapid,
-                title: 'nwHacks 2024',
-                description: 'I am leading a passion project amongst my friends for a free online gaming website. Currently still a WIP.',
-                link: 'https://ubc-rapid.com/#/'
-            },
-            {
-                img: ubcrapid,
-                title: 'Hack the Change 2023',
-                description: 'I am leading a passion project amongst my friends for a free online gaming website. Currently still a WIP.',
-                link: 'https://ubc-rapid.com/#/'
-            },
-            {
-                img: ubcrapid,
-                title: 'UBC Music for Mental Health Webdev',
-                description: 'I work as part of the web dev subteam in the UBC Music for Mental Health club.',
-                link: 'https://ubc-rapid.com/#/'
-            },
 
-
-        ];
 
         return (
             <div className="exp">
-                <h2>PROJECTS & EXPERIENCE</h2>
+                <h2>EXPERIENCE</h2>
 
                 <div className="carousel">
                     <button className="carousel-button left" onClick={handlePrevClick}>
@@ -154,18 +109,10 @@ const Exp = () => {
                     </button>
                 </div>
 
-                <div className="projects">
-                    {projects.map((project, index) => (
-                        <a key={index} href={project.link} target="_blank" rel="noopener noreferrer"
-                           className="project-card">
-                            <img src={project.img} alt={project.title} width="150px"/>
-                            <div className="project-info">
-                                <h3>{project.title}</h3>
-                                <p>{project.description}</p>
-                            </div>
-                        </a>
-                    ))}
-                </div>
+
+                <button className="back-button" onClick={goBack}>
+                    ← Back
+                </button>
 
             </div>
         );
