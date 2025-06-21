@@ -35,7 +35,7 @@
 
 /* each card */
 .project-card {
-    flex: 0 0 250px; /* must match ITEM_W */
+    flex: 0 0 240px; /* must match ITEM_W */
     display: flex;
     flex-direction: column;
     background: #c0a5f3;

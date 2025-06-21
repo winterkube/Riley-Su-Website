@@ -50,7 +50,7 @@ export default function App() {
         <div className="menu-screen">
             <h1 className="menu-title">Riley Su</h1>
             <div className="menu-buttons">
-                {['about', 'experience', 'projects', 'misc', 'contact'].map((section) => (
+                {['about', 'projects', 'experience', 'misc', 'contact'].map((section) => (
                     <button key={section} onClick={() => goTo(section)}>
                         {section.charAt(0).toUpperCase() + section.slice(1)}
                     </button>

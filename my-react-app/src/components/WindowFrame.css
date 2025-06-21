@@ -3,7 +3,7 @@
     height: 95%;
     display: flex;
     flex-direction: column;
-    border: 4px solid #444;
+    border: 4px solid #232323;
     box-shadow: 0 0 0 4px #888;
     background: #ddd;
     user-select: none;
@@ -11,14 +11,91 @@
     position: absolute;
 
 }
+.hexs {
+    position: absolute;
+}
+.hexs2 {
+    position: absolute;
+    left: 4.25%;
+    top: -20%;
+}
+.hexs3 {
+    position: absolute;
+    left: 21%;
+    /*top: 0%;*/
+}
+
+.hexs4 {
+    position: absolute;
+    left: 37.75%;
+    top: -20%;
+}
+
+.hexs5 {
+    position: absolute;
+    left: 54.5%;
+    /*top: 0%;*/
+}
+
+.hexs6 {
+    position: absolute;
+    left: 71.25%;
+    top: -20%;
+}
+
+.hexs7 {
+    position: absolute;
+    left: 88%;
+    /*top: 0%;*/
+}
+
+.hexagon {
+    height: 200px; /* adjust to control the size  */
+    aspect-ratio: 1/cos(30deg);
+    clip-path: polygon(50% -50%,100% 50%,50% 150%,0 50%);
+    background: #000000;
+    margin-bottom: 10px ;
+    /*left: 10%;*/
+}
+
+.hexagon2 {
+    height: 200px; /* adjust to control the size  */
+    aspect-ratio: 1/cos(30deg);
+    clip-path: polygon(50% -50%,100% 50%,50% 150%,0 50%);
+    background: #000000;
+    margin-bottom: 10px ;
+    /*margin-bottom: -100% ;*/
+    margin-left: 20%;
+    /*padding-bottom: -20%;*/
+}
+.bg {
+    /*background-image: url("./images/bg.png");*/
+    z-index: 1;
+    background-size: contain;
+    width: 70%;
+    margin-top: -10px;
+    height: 70%;
+    margin-left: -10%;
+}
+
+.mouse-circle {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(closest-side, #f65834, #d20000, #d691e5, transparent 100%);
+    filter: blur(70px);
+    z-index: -1;
+}
 
 .titlebar {
     height: 32px;
-    background: linear-gradient(to bottom, #666, #444);
+    background: white;
     display: flex;
     align-items: center;
     padding: 0 8px;
-    color: #fff;
+    color: #000000;
     font-family: Lexend, sans-serif;
     font-size: 14px;
 }
@@ -31,26 +108,31 @@
 .title-buttons {
     font-family: Lexend, sans-serif;
 
-    /*right: 50%;*/
+    /*right: 10%;*/
     display: flex;
-    gap: 6px;
+    gap: 8px;
 }
 
-.btn-circle {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: #aaa;
+.btn {
+    width: 50px;
+    height: 28px;
+    font-size: 15px;
+    text-align: center;
+    padding-top: 3px;
+    margin-right: -6px;
 }
-.btn-circle.close { background: #e81123; }
-.btn-circle.minimize { background: #ffbf00; }
-.btn-circle.maximize { background: #00ca4e; }
-
+.btn.close { background: #e81123; }
+.btn.minimize { background: #e7e7e7; }
+.btn.maximize { background: #919191; }
 .window-content {
     position: relative;    /* new: establish a positioning context */
     flex: 1;
     overflow: hidden;      /* hide anything outside the window */
-    background: #222;
+    background: black;
     color: #eee;
     padding: 16px;
+    background-size: cover;
+    z-index: 2;
 }
+
+

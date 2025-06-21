@@ -70,7 +70,7 @@
 
   /*right: 20%;*/
 
-  background: #444;
+  background: #171717;
   border: 2px solid #eee;
   color: #eee;
   padding: 8px 16px;
@@ -82,7 +82,7 @@
 }
 .menu-buttons button:hover {
 
-  background: #666;
+  background: #383838;
 }
 
 /* Section and back button… */
