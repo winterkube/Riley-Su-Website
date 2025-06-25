@@ -13,6 +13,7 @@ function Home({ goBack }) {
                 <br></br>
                 <br></br>
                 Creative mind with a passion for design, teamwork, and rigorous problem solving.
+
             </p>
 
             <div className="photo">
