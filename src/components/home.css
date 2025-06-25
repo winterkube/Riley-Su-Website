@@ -47,6 +47,25 @@
     padding-right: 40%;
 }
 
+.resume {
+    font-size: 35px;
+    font-family: Lexend, serif;
+    text-align: left;
+    margin-left: 7%;
+    padding-left: 0%;
+    padding-right: 0%;
+    color: #a0b9ff;
+    width: 50px;
+    height: 40px;
+    text-decoration: underline;
+}
+
+.resume:hover {
+    cursor: pointer;
+    color: #82a1f5;
+
+}
+
 .home p3 {
     font-size: 23px;
     font-family: Lexend, serif;
@@ -105,7 +124,7 @@
     margin-left: 6.5%;
     width: 220px;
     height: 240px;
-    background-image: url("./images/me_gren.jpeg");
+    background-image: url("./images/me_gren.jpeg"), url("./images/me_pink.png"), url("images/me_cat.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
