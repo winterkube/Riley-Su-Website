@@ -157,7 +157,7 @@ export default function Projects({ goBack }) {
             // }, 500);
         }
 
-    }, [index]);
+    }, [index, SLIDE_W, projects.length]);
 
     // when the transition ends, “jump” without animation if we hit a clone
     const onTransitionEnd = () => {

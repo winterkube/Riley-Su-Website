@@ -1,124 +1,175 @@
+// src/Experience.jsx
+import React, { useEffect, useRef } from 'react';
+import {
+    Engine,
+    Render,
+    Runner,
+    Bodies,
+    Composite,
+    Mouse,
+    MouseConstraint,
+    Events,
+} from 'matter-js';
 import './exp.css';
-import React, {useEffect, useRef} from 'react';
-import {useState} from "react";
-import htmlLogo from './images/htmllogo.png';
-import c from './images/c.png';
-import cpp from './images/cpp.png';
-import css from './images/css.png';
-import git from './images/git.png';
-import java from './images/java.png';
-import javascript from './images/JavaScript.png';
-import matlab from './images/matlab.png';
-import mysql from './images/mysql.png';
-import python from './images/python.png';
-import react from './images/react.png';
-import systemverilog from './images/systemverilog.png';
 
-import ubcrapid from './images/ubcrapid.png';
-import log_logo from './images/log logo.png';
+import htmlLogo    from './images/htmllogo.png';
+import cssLogo     from './images/css.png';
+import jsLogo      from './images/JavaScript.png';
+import reactLogo   from './images/react.png';
+import javaLogo    from './images/java.png';
+import pythonLogo  from './images/python.png';
+import cLogo       from './images/c.png';
+import cppLogo     from './images/cpp.png';
+import svLogo      from './images/systemverilog.png';
+import gitLogo     from './images/git.png';
+import matlabLogo  from './images/matlab.png';
+import mysqlLogo   from './images/mysql.png';
 
-
-const Exp = ({ goBack }) => {
-        const skills = [
-                {img: htmlLogo, title: 'HTML'},
-                {img: css, title: 'CSS'},
-                {img: javascript, title: 'Java Script'},
-                {img: react, title: 'React'},
-                {img: java, title: 'Java'},
-                {img: python, title: 'Python'},
-                {img: c, title: 'C'},
-                {img: cpp, title: 'C++'},
-                {img: systemverilog, title: 'System Verilog'},
-                {img: git, title: 'Git'},
-                {img: matlab, title: 'Matlab'},
-                {img: mysql, title: 'MySQL'}
-        ];
-    const [index, setIndex] = useState(0);
-    const visibleSkills = 8;
-    const trackRef = useRef(null);
-
-    const handlePrevClick = () => {
-        if (index === 0) {
-            trackRef.current.style.transition = 'transform 0.5s ease-in-out';
-            setIndex(skills.length - 1);
-            setTimeout(() => {
-                trackRef.current.style.transition = 'transform 0.5s ease-in-out';
-                setIndex(skills.length - 1);
-            }, 20);
-        } else {
-            setIndex((prevIndex) => prevIndex - 1);
-        }
-    };
-
-    const handleNextClick = () => {
-        if (index === skills.length - 1) {
-            trackRef.current.style.transition = 'transform 0.5s ease-in-out';
-            setIndex(index + 1);
-            setTimeout(() => {
-                trackRef.current.style.transition = 'transform 0.5s ease-in-out';
-                setIndex(0);
-            }, 500);
-        } else {
-            setIndex((prevIndex) => prevIndex + 1);
-        }
-    };
-
-
+export default function Experience({ goBack }) {
+    const sceneRef = useRef(null);
 
     useEffect(() => {
-        trackRef.current.style.transition = 'transform 0.5s ease-in-out';
-    }, [index]);
+        // 1) create engine + world
+        const engine = Engine.create();
+        engine.gravity.y = 1; // enable gravity
+        const world = engine.world;
 
-    const getVisibleSkills = () => {
-        const endIndex = index + visibleSkills;
-        if (endIndex <= skills.length) {
-            return skills.slice(index, endIndex);
-        }
-        return skills.slice(index).concat(skills.slice(0, endIndex - skills.length));
-    };
+        // 2) create renderer
+        const render = Render.create({
+            element: sceneRef.current,
+            engine: engine,
+            options: {
+                width: 1090,
+                height: 500,
+                wireframes: false,
+                background: 'transparent',
+            },
+        });
+        Render.run(render);
 
-    const translateX = -index * 0; // Adjust based on the width percentage of each skill
+        // 3) create runner
+        const runner = Runner.create();
+        Runner.run(runner, engine);
 
+        // 4) add walls to contain bodies
+        const w = render.options.width,
+            h = render.options.height,
+            t = 50;
+        Composite.add(world, [
+            Bodies.rectangle(w/2, h + t/2, w, t, { isStatic: true }),
+            Bodies.rectangle(-t/2, h/2, t, h, { isStatic: true }),
+            Bodies.rectangle(w + t/2, h/2, t, h, { isStatic: true }),
+            Bodies.rectangle(w/2, -t/2, w, t, { isStatic: true }),
+        ]);
 
+        // 5) define skills and preload images
+        const raw = [
+            { img: htmlLogo,   title: 'HTML' },
+            { img: cssLogo,    title: 'CSS' },
+            { img: jsLogo,     title: 'JavaScript' },
+            { img: reactLogo,  title: 'React' },
+            { img: javaLogo,   title: 'Java' },
+            { img: pythonLogo, title: 'Python' },
+            { img: cLogo,      title: 'C' },
+            { img: cppLogo,    title: 'C++' },
+            { img: svLogo,     title: 'SystemVerilog' },
+            { img: gitLogo,    title: 'Git' },
+            { img: matlabLogo, title: 'Matlab' },
+            { img: mysqlLogo,  title: 'MySQL' },
+        ];
 
-
-        return (
-            <div className="exp">
-                <h1>EXPERIENCE</h1>
-                <h2>Here are all the languages, tools and apps I am proficient in:</h2>
-
-                <div className="carousel">
-                    <button className="carousel-button left" onClick={handlePrevClick}>
-                        &lt;
-                    </button>
-                    <div className="carousel-track-container">
-                        <div
-                            className="carousel-track"
-                            ref={trackRef}
-                            style={{transform: `translateX(${translateX}%)`}}
-                        >
-                            {getVisibleSkills().map((skill, i) => (
-                                <div key={i} className="skill">
-                                    <img src={skill.img} alt={skill.title} width="100px"/>
-                                    <p>{skill.title}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <button className="carousel-button right" onClick={handleNextClick}>
-                        &gt;
-                    </button>
-                </div>
-
-
-                <button className="back-button" onClick={goBack}>
-                    ← Back
-                </button>
-
-            </div>
+        // helper: preload and return natural sizes
+        const loadImgs = raw.map(
+            (s) =>
+                new Promise((res) => {
+                    const img = new Image();
+                    img.src = s.img;
+                    img.onload = () => res({ ...s, w: img.naturalWidth, h: img.naturalHeight });
+                })
         );
 
+        Promise.all(loadImgs).then((skills) => {
+            const SIZE = 80;
+            // 6) spawn each body
+            const bodies = skills.map((s, i) => {
+                // scale sprite so it fills the box
+                const xScale = SIZE / s.w;
+                const yScale = SIZE / s.h;
+                // position in a grid near the top
+                const cols = 4;
+                const x = 200 + Math.random() * 400 + (i % cols) * (SIZE + 10);
+                const y =  20 + Math.floor(i / cols) * (SIZE + 10);
 
+                return Bodies.rectangle(x, y, SIZE, SIZE, {
+                    restitution: 0.6,
+                    friction: 0.1,
+                    render: {
+                        fillStyle: '#ADD8E6',    // light-blue box
+                        strokeStyle: '#fff',
+                        lineWidth: 2,
+                        sprite: { texture: s.img, xScale, yScale },
+                    },
+                    label: s.title,
+                });
+            });
+            Composite.add(world, bodies);
+
+            // 7) add mouse drag
+            const mouse = Mouse.create(render.canvas);
+            const mc = MouseConstraint.create(engine, {
+                mouse,
+                constraint: { stiffness: 0.2, render: { visible: false } }
+            });
+            Composite.add(world, mc);
+            render.mouse = mouse;
+
+            // 8) draw labels after each render
+            Events.on(render, 'afterRender', () => {
+                const ctx = render.context;
+                ctx.fillStyle = '#fff';
+                ctx.font = '12px sans-serif';
+                bodies.forEach((b) => {
+                    const { x, y } = b.position;
+                    ctx.fillText(b.label, x - SIZE/2 + 4, y + SIZE/2 + 12);
+                });
+            });
+        });
+
+        // 9) cleanup on unmount
+        return () => {
+            Render.stop(render);
+            Runner.stop(runner);
+            Composite.clear(world, false);
+            Engine.clear(engine);
+            render.canvas.remove();
+            render.textures = {};
+        };
+    }, []);
+
+    return (
+        <div className="exp"
+            // style={{ position: 'relative', width: 640, height: 480 }}
+        >
+            <h1>EXPERIENCE</h1>
+            <h2>Here are all the languages, tools and skills I am proficient in:</h2>
+            <div ref={sceneRef}/>
+            <button
+                className="back-button"
+                onClick={goBack}
+                style={{
+                    position: 'absolute',
+                    // top: 10,
+                    // right: 10,
+                    zIndex: 1,
+                    background: '#444',
+                    color: '#eee',
+                    border: '2px solid #eee',
+                    padding: '6px 12px',
+                    cursor: 'pointer',
+                }}
+            >
+                ← Back
+            </button>
+        </div>
+    );
 }
-
-export default Exp;

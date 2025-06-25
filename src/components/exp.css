@@ -3,9 +3,11 @@
 
 .exp {
     text-align: center;
-    padding: 18px;
+    padding: 0px;
     position: absolute;
 }
+
+/* Back‐button styling can live here or inline */
 
 .exp h1 {
     text-align: center;
