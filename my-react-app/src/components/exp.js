@@ -85,6 +85,7 @@ const Exp = ({ goBack }) => {
         return (
             <div className="exp">
                 <h1>EXPERIENCE</h1>
+                <h2>Here are all the languages, tools and apps I am proficient in:</h2>
 
                 <div className="carousel">
                     <button className="carousel-button left" onClick={handlePrevClick}>

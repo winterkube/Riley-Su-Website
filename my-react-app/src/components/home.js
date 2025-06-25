@@ -27,6 +27,10 @@ function Home({ goBack }) {
             </div>
             {/*<p2> okay, probably not. But I'll strive to do the best I can.</p2>*/}
 
+            <div className="resume">
+                RESUME
+            </div>
+
             <button className="back-button" onClick={goBack}>
                 ← Back
             </button>

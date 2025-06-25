@@ -46,10 +46,13 @@
 }
 
 .exp h2 {
+    position: absolute;
     text-align: left;
-    font-size: 50px;
+    font-size: 28px;
+    margin-top: 10%;
+    width: 500px;
     font-family: Lexend, serif;
-    padding-left: 7%;
+    padding-left: 6.5%;
 }
 
 .gallery {
