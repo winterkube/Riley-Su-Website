@@ -42,13 +42,59 @@ import Contact from './components/contact';
 
 import './App.css';  // for the .app-container and .menu-styles
 
+
 export default function App() {
     const [view, setView] = useState('menu');
+    const [angle, setAngle] = useState(0);
 
+    const rotateDown = () => {
+        setAngle(prev => prev - 90);
+    };
     // The “main menu”
     const Menu = ({ goTo }) => (
         <div className="menu-screen">
             <h1 className="menu-title">Riley Su</h1>
+
+
+            <div className='cube'>
+                <div className="desc"
+                     // className="cube_items"
+                     style={{
+                         transform: `translateZ(-200px) rotateX(${angle}deg)`,
+                         transformStyle: "preserve-3d",
+                         transition: "transform 1s ease"
+                     }}>
+                    {/*<h2 className="title-desc1">*/}
+                    {/*Software Engineer </h2> <h2 className="title-desc2">*/}
+                    {/*Website Developer</h2> <h2 className="title-desc3">*/}
+                    {/*UI/UX/Graphics Designer</h2> <h2 className="title-desc4">*/}
+                    {/*Calculus Tutor</h2> <h2 className="title-desc5">*/}
+                    {/*Music Producer</h2>*/}
+                    <ul
+                    >
+
+                        {/* media src in react js link from within src or using /public as root */}
+                        <div className="cube__face face1">
+                            Website Developer
+                        </div>
+                        <div className="cube__face face2">
+                            UI/UX/Graphics Designer
+                        </div>
+                        <div className="cube__face face3">
+                            Calculus Tutor
+                        </div>
+                        <div className="cube__face face4">
+                            Music Producer
+                        </div>
+
+                        <div className="cube__face face5">
+                            Software Engineer
+                        </div>
+                    </ul>
+                </div>
+
+            </div>
+
             <div className="menu-buttons">
                 {['about', 'projects', 'experience', 'misc', 'contact'].map((section) => (
                     <button key={section} onClick={() => goTo(section)}>
@@ -57,16 +103,17 @@ export default function App() {
                 ))}
             </div>
         </div>
-    );
+        )
+    ;
 
     // Map view names to components, passing down goBack / goTo
     const views = {
-        menu: <Menu goTo={setView} />,
-        about: <About goBack={() => setView('menu')} />,
-        experience: <Experience goBack={() => setView('menu')} />,
-        projects: <Projects goBack={() => setView('menu')} />,
-        misc: <Misc goBack={() => setView('menu')} />,
-        contact: <Contact goBack={() => setView('menu')} />,
+        menu: <Menu goTo={setView}/>,
+        about: <About goBack={() => setView('menu')}/>,
+        experience: <Experience goBack={() => setView('menu')}/>,
+        projects: <Projects goBack={() => setView('menu')}/>,
+        misc: <Misc goBack={() => setView('menu')}/>,
+        contact: <Contact goBack={() => setView('menu')}/>,
     };
 
     return (

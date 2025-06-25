@@ -1,4 +1,30 @@
 /* make this the positioning context for the back button */
+.projects-carousel h1 {
+    text-align: center;
+    font-size: 50px;
+    font-family: Lexend, serif;
+    position: absolute;
+    margin-top: -35%;
+    margin-left: 5%;
+    background-image: url("./images/0.jpg");
+    background-size: contain;
+    color: transparent;
+    background-clip: text;
+    transition: 1s all;
+    animation: color 8s infinite;
+
+
+}
+
+@keyframes color {
+    from {
+        filter: hue-rotate(0deg);
+
+    }  to {
+           filter: hue-rotate(360deg);
+       }
+}
+
 .projects-carousel {
     position: relative;
     display: flex;
@@ -10,16 +36,19 @@
 /* arrows */
 .carousel-btn {
     background: grey;
-    border: none;
+    border: solid;
+    border-radius: 6px;
     font-size: 2.5rem;
     color: #eee;
     cursor: pointer;
-    padding: 0 10px;
-    transition: color 0.2s;
+    padding: 0px 10px 3px;
+    transition: background 0.2s;
     z-index: 1;
+    margin-top: 8%;
 }
 .carousel-btn:hover {
     color: white;
+    background: #656565;
 }
 
 /* mask out everything but VISIBLE cards */
@@ -31,6 +60,7 @@
 .carousel-track {
     display: flex;
     gap: 20px; /* must match GAP */
+    margin-top: 10%;
 }
 
 /* each card */
@@ -38,10 +68,10 @@
     flex: 0 0 240px; /* must match ITEM_W */
     display: flex;
     flex-direction: column;
-    background: #c0a5f3;
+    background: linear-gradient(#f3a5f3, #a782ef, #645ead);
     border-radius: 10px;
-    padding: 9px;
-    height: 380px;
+    padding: 9px 9px 25px;
+    height: 300px;
     text-decoration: none;
     color: white;
     transition: transform 0.3s;
@@ -52,44 +82,33 @@
 
 .project-card img {
     width: 100%;
-    height: auto;
+    height: 50%;
     border-radius: 10px;
     object-fit: cover;
 }
 
 .project-info {
-    margin-top: 10px;
+    margin-top: 0px;
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 0 5px;
+    padding: 5px;
 }
 
 .project-info h3 {
     font-family: Lexend, serif;
     font-size: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
+    padding-bottom: -5px;
 }
 
 .project-info p {
-    font-size: 16px;
+    font-size: 14px;
     flex: 1;
 }
 
 /* back button in the top-right corner */
-.back-button {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    transform: translate(120%, -120%);
-    background: #444;
-    border: 2px solid #eee;
-    color: #eee;
-    padding: 6px 12px;
-    cursor: pointer;
-    font-family: sans-serif;
-    transition: background 0.2s;
-}
+
 .back-button:hover {
     background: #666;
 }

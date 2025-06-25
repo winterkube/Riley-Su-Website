@@ -9,9 +9,30 @@
 
 .exp h1 {
     text-align: center;
-    font-size: 70px;
+    font-size: 60px;
     font-family: Lexend, serif;
 
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 6%;
+
+    background-image: url("./images/0.jpg");
+    background-size: contain;
+    color: transparent;
+    background-clip: text;
+    transition: 1s all;
+    animation: color 8s infinite;
+
+
+}
+
+@keyframes color {
+    from {
+        filter: hue-rotate(0deg);
+
+    }  to {
+           filter: hue-rotate(360deg);
+       }
 }
 
 .exp p {
@@ -39,6 +60,7 @@
     padding-right: 20%;
     padding-left: 5%;
     padding-bottom: 20px;
+
 }
 
 .skill {
@@ -50,6 +72,7 @@
     border-radius: 10px;
     padding: 23px;
     width: 60px;
+
 }
 
 .skill img {
@@ -72,11 +95,14 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    bottom: -100px;
     overflow: hidden; /* Make sure overflow is hidden to create the sliding effect */
     padding-right: 12%;
     padding-left: 12%;
-    padding-bottom: 30px;
+    padding-bottom: 80px;
     gap: 28px;
+
+
 }
 
 .carousel-button {
@@ -106,6 +132,7 @@
     overflow: hidden;
     width: 180%;
     padding: 15px;
+
 }
 
 .carousel-track {
@@ -113,4 +140,5 @@
     transition: transform 0.5s ease-in-out; /* Smooth transition */
     will-change: transform;
     padding: 10px;
+
 }

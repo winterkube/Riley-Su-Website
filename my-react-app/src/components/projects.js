@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import ubcrapid from './images/ubcrapid.png';
+import ubcrapid from './images/ubcrapid.jpg';
 import log_logo from './images/log logo.png';
 import howtomath from './images/howtomath.png';
 import hirehigher from './images/hirehigher.png';
@@ -177,47 +177,52 @@ export default function Projects({ goBack }) {
     };
 
     return (
-        <div className="projects-carousel">
-            <button className="carousel-btn left" onClick={prev}>‹</button>
+        <>
 
-            <div
-                className="carousel-window"
-                style={{
-                    width: VISIBLE * ITEM_W + (VISIBLE) * GAP + 'px',
-                }}
-            >
+            <div className="projects-carousel">
+                <h1>PROJECTS</h1>
+                <button className="carousel-btn left" onClick={prev}>‹</button>
+
                 <div
-                    className="carousel-track"
-                    ref={trackRef}
-                    onTransitionEnd={onTransitionEnd}
+                    className="carousel-window"
                     style={{
-                        width:
-                            extended.length * ITEM_W +
-                            (extended.length - 1) * GAP +
-                            'px',
+                        width: VISIBLE * ITEM_W + (VISIBLE) * GAP + 'px',
                     }}
                 >
-                    {extended.map((p, i) => (
-                        <a
-                            key={i}
-                            href={p.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="project-card"
-                        >
-                            <img src={p.img} alt={p.title} />
-                            <div className="project-info">
-                                <h3>{p.title}</h3>
-                                <p>{p.description}</p>
-                            </div>
-                        </a>
-                    ))}
+                    <div
+                        className="carousel-track"
+                        ref={trackRef}
+                        onTransitionEnd={onTransitionEnd}
+                        style={{
+                            width:
+                                extended.length * ITEM_W +
+                                (extended.length - 1) * GAP +
+                                'px',
+                        }}
+                    >
+                        {extended.map((p, i) => (
+                            <a
+                                key={i}
+                                href={p.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="project-card"
+                            >
+                                <img src={p.img} alt={p.title}/>
+                                <div className="project-info">
+                                    <h3>{p.title}</h3>
+                                    <p>{p.description}</p>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
                 </div>
+
+                <button className="carousel-btn right" onClick={next}>›</button>
+
+
             </div>
-
-            <button className="carousel-btn right" onClick={next}>›</button>
-
             <button className="back-button" onClick={goBack}>← Back</button>
-        </div>
+    </>
     );
 }

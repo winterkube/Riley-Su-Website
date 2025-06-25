@@ -6,14 +6,25 @@ function Home({ goBack }) {
     return (
         <div className="home">
 
-            <h1>Hey, I'm Riley Su</h1>
-            <p3> Welcome to my portfolio website!</p3>
+            <h1>ABOUT</h1>
+            <p3> </p3>
 
-            <h2> ABOUT </h2>
+            <p>Currently a third year student studying Computer Engineering at the University of British Columbia.
+                <br></br>
+                <br></br>
+                Creative mind with a passion for design, teamwork, and rigorous problem solving.
+            </p>
 
-            <p>Currently a second year student studying Computer Engineering at the University of British Columbia.
-                Soon-to-be world's greatest software developer.</p>
-            <p2> okay, probably not. But I'll strive to do the best I can.</p2>
+            <div className="photo">
+                <div className="image"></div>
+                <br></br>
+                NAME: RILEY SU <br></br>
+                BORN: 2004 <br></br>
+                SPECIES: HUMAN <br></br>
+                {/*IP: 192.294.457.22 <br></br>*/}
+
+            </div>
+            {/*<p2> okay, probably not. But I'll strive to do the best I can.</p2>*/}
 
             <button className="back-button" onClick={goBack}>
                 ← Back

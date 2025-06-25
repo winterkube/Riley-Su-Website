@@ -16,21 +16,42 @@ export default function WindowFrame({ title = 'RileySu.exe', children }) {
         });
     };
 
+    const [minimized, setMinimized] = useState(false);
+
+    const [maximized, setMaximized] = useState(false);
+    const [closed, setClosed] = useState(false);
+
+    const minimize = () => {
+        setMinimized(true);
+        setMaximized(false);
+    }
+    const maximize = () => {
+        setMaximized(true);
+        setMinimized(false);
+
+    }
+    const close = () => {
+        if (window.confirm("You sure?")) {
+            setClosed(true);
+        }
+
+    }
+
     return (
-        <div className="fake-window">
-            <div className="titlebar">
+        <div className={`fake-window ${minimized ? 'mini' : ''} ${maximized ? 'maxi' : ''} ${closed ? 'close' : ''}`}>
+            <div className={`titlebar ${minimized ? 'mini' : ''} ${maximized ? 'maxi' : ''}` }>
                 <span className="title-text">{title}</span>
                 <div className="title-buttons">
 
-                    <span className="btn minimize">━</span>
-                    <span className="btn maximize">🗖</span>
-                    <span className="btn close">✖</span>
+                    <span className="btn minimize" onClick={minimize}>━</span>
+                    <span className="btn maximize" onClick={maximize}>🗖</span>
+                    <span className="btn close" onClick={close}>✖</span>
 
                 </div>
             </div>
 
 
-            <div className="window-content"
+            <div className={`window-content ${minimized ? 'mini' : ''} ${maximized ? 'maxi' : ''}`}
                  onMouseMove={handleMouseMove}>
                 <div
                     className="mouse-circle"
