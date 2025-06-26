@@ -10,6 +10,7 @@
 /* Back‐button styling can live here or inline */
 
 .exp h1 {
+    pointer-events: none;
     text-align: center;
     font-size: 60px;
     font-family: Lexend, serif;
@@ -25,15 +26,15 @@
     transition: 1s all;
     animation: color 8s infinite;
 
-
+    z-index: 0;
 }
 
 @keyframes color {
     from {
-        filter: hue-rotate(0deg);
+        filter: hue-rotate(0deg) drop-shadow(0 0 5px black);
 
     }  to {
-           filter: hue-rotate(360deg);
+           filter: hue-rotate(360deg)drop-shadow(0 0 5px black);
        }
 }
 
@@ -55,6 +56,13 @@
     width: 500px;
     font-family: Lexend, serif;
     padding-left: 6.5%;
+    filter: drop-shadow(0 0 5px black);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.scene {
+    z-index: 5;
 }
 
 .gallery {

@@ -55,12 +55,24 @@
   top: 2%;
   font-size: 4.5rem;
   margin-bottom: 30px;
-  text-shadow: 2px 2px 5px #000000;
-  /*background-image: linear-gradient(#ffffff, #c0c0c0);*/
-  /*color: transparent;*/
-  /*background-clip: text;*/
+  /*text-shadow: 2px 2px 5px #000000;*/
 
-  /*-webkit-text-stroke: 1px black;*/
+  background-image: url("./components/images/0.jpg");
+  background-size: contain;
+  color: transparent;
+  background-clip: text;
+  transition: 1s color;
+  animation: color2 8s infinite;
+}
+
+@keyframes color2 {
+  from {
+    filter: hue-rotate(0deg) drop-shadow( 0 0 0.5rem #626262);
+    
+  }  to {
+       filter: hue-rotate(360deg) drop-shadow( 0 0 0.5rem #949494);
+
+       }
 }
 
 .desc {

@@ -9,6 +9,7 @@ import {
     Mouse,
     MouseConstraint,
     Events,
+    Query,
 } from 'matter-js';
 import './exp.css';
 
@@ -72,7 +73,7 @@ export default function Experience({ goBack }) {
             { img: pythonLogo, title: 'Python' },
             { img: cLogo,      title: 'C' },
             { img: cppLogo,    title: 'C++' },
-            { img: svLogo,     title: 'SystemVerilog' },
+            { img: svLogo,     title: 'Verilog' },
             { img: gitLogo,    title: 'Git' },
             { img: matlabLogo, title: 'Matlab' },
             { img: mysqlLogo,  title: 'MySQL' },
@@ -88,52 +89,91 @@ export default function Experience({ goBack }) {
                 })
         );
 
-        Promise.all(loadImgs).then((skills) => {
-            const SIZE = 80;
-            // 6) spawn each body
+        Promise.all(
+            raw.map((s) =>
+                new Promise((res) => {
+                    const img = new Image();
+                    img.src = s.img;
+                    img.onload = () => res({ ...s, imgElement: img });
+                })
+            )
+        ).then((skills) => {
+            const SIZE = 100;
+            const cols = 4;
+            // 4) Create one body per skill, with fillStyle only
             const bodies = skills.map((s, i) => {
-                // scale sprite so it fills the box
-                const xScale = SIZE / s.w;
-                const yScale = SIZE / s.h;
-                // position in a grid near the top
-                const cols = 4;
-                const x = 200 + Math.random() * 400 + (i % cols) * (SIZE + 10);
-                const y =  20 + Math.floor(i / cols) * (SIZE + 10);
-
-                return Bodies.rectangle(x, y, SIZE, SIZE, {
+                const x = 200 + 400 * Math.random() + (i % cols) * (SIZE + 10);
+                const y = 20  + Math.floor(i / cols) * (SIZE + 10);
+                const b = Bodies.rectangle(x, y, SIZE, SIZE + 50, {
                     restitution: 0.6,
                     friction: 0.1,
                     render: {
-                        fillStyle: '#ADD8E6',    // light-blue box
+                        fillStyle: '#78a6b4',    // light-blue box
                         strokeStyle: '#fff',
+                        opacity: 0.9,
+                        // borderWidth: 2,
+                        // borderRadius: 5,
                         lineWidth: 2,
-                        sprite: { texture: s.img, xScale, yScale },
+                        zIndex: 5,
                     },
                     label: s.title,
                 });
+                // attach the preloaded image for manual draw
+                b.mySprite = s.imgElement;
+                return b;
             });
             Composite.add(world, bodies);
 
-            // 7) add mouse drag
-            const mouse = Mouse.create(render.canvas);
-            const mc = MouseConstraint.create(engine, {
-                mouse,
-                constraint: { stiffness: 0.2, render: { visible: false } }
-            });
-            Composite.add(world, mc);
-            render.mouse = mouse;
 
-            // 8) draw labels after each render
+            // 6) After each render pass: draw sprites + captions
             Events.on(render, 'afterRender', () => {
                 const ctx = render.context;
-                ctx.fillStyle = '#fff';
-                ctx.font = '12px sans-serif';
                 bodies.forEach((b) => {
                     const { x, y } = b.position;
-                    ctx.fillText(b.label, x - SIZE/2 + 4, y + SIZE/2 + 12);
+                    const angle = b.angle;
+
+                    // draw the sprite centered on the body
+                    ctx.save();
+                    ctx.translate(x, y);
+                    ctx.rotate(angle);
+                    ctx.drawImage(b.mySprite, -SIZE/2 *0.9, -SIZE/2 * 1.2, SIZE*0.9, SIZE* 0.9);
+                    // ctx.restore();
+                    //
+                    // // draw the caption
+                    // ctx.save();
+                    ctx.fillStyle    = '#fff';
+                    ctx.font         = '16px Lexend, sans-serif';
+                    ctx.textAlign    = 'center';
+                    ctx.textBaseline = 'top';
+
+                    ctx.fillText(b.label, SIZE/2 - 50, SIZE - 50,SIZE*0.9);
+                     // ctx.translate(x, y);
+                     // ctx.rotate(angle);
+                    ctx.restore();
                 });
             });
+            // Hover‐detection: change <canvas> cursor when over a body
+            render.canvas.addEventListener('mousemove', (e) => {
+                const rect = render.canvas.getBoundingClientRect();
+                const mousePos = {
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top
+                };
+                // Query.point returns an array of bodies under that point
+                const under = Query.point(bodies, mousePos);
+                render.canvas.style.cursor = under.length ? 'pointer' : 'default';
+            });
+
         });
+
+        // 5) Add mouse drag‐and‐drop
+        const mouse = Mouse.create(render.canvas);
+        const mc = MouseConstraint.create(engine, {
+            mouse,
+            constraint: { stiffness: 0.2, render: { visible: false }, zIndex: 5, pointerEvents: true },
+        });
+        Composite.add(world, mc);
+        render.mouse = mouse;
 
         // 9) cleanup on unmount
         return () => {
@@ -152,7 +192,7 @@ export default function Experience({ goBack }) {
         >
             <h1>EXPERIENCE</h1>
             <h2>Here are all the languages, tools and skills I am proficient in:</h2>
-            <div ref={sceneRef}/>
+            <div className="scene" ref={sceneRef}/>
             <button
                 className="back-button"
                 onClick={goBack}
