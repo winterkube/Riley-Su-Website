@@ -19,19 +19,38 @@ export default function WindowFrame({ title = 'RileySu.exe', children }) {
 
     // On click inside the window-content, spawn a new ripple
     const handleMouseDown = (e) => {
-        const rect = contentRef.current.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+        const el   = contentRef.current;
+        const rect = el.getBoundingClientRect();
+
+          const scaleX = rect.width  / el.offsetWidth;
+           const scaleY = rect.height / el.offsetHeight;
+
+        const rawX = e.clientX - rect.left;
+        const rawY = e.clientY - rect.top;
+
         const id = Date.now() + Math.random();
-        setRipples((r) => [...r, { id, x, y }]);
+        setRipples((r) => [
+                 ...r,
+                 { id, x2: rawX / scaleX, y2: rawY / scaleY }
+               ]);
     };
     const [mouse, setMouse] = useState({ x: 0, y: 0 });
     const handleMouseMove = (e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        setMouse({
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top,
-        });
+        const el   = contentRef.current;
+        const rect = el.getBoundingClientRect();
+
+           // true scale = (width after transform) / (original width before transform)
+        const scaleX = rect.width  / el.offsetWidth;
+        const scaleY = rect.height / el.offsetHeight;
+        // raw mouse pos relative to top-left of element in screen px
+           const rawX = e.clientX - rect.left;
+           const rawY = e.clientY - rect.top;
+
+           // divide by scale to get internal (unscaled) coords
+               setMouse({
+                   x: rawX / scaleX,
+                 y: rawY / scaleY,
+               });
     };
 
     const [minimized, setMinimized] = useState(false);
@@ -135,11 +154,11 @@ export default function WindowFrame({ title = 'RileySu.exe', children }) {
 
                 <div className="flower-container2">
                 {/* Ripples */}
-                {ripples.map(({ id, x, y }) => (
+                {ripples.map(({ id, x2, y2 }) => (
                     <span
                         key={id}
                         className="ripple"
-                        style={{left: x, top: y}}
+                        style={{left: x2, top: y2}}
                         onAnimationEnd={() => removeRipple(id)}
                     ><div className="flower-container">
                     <div className="flower-bg">

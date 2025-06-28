@@ -1,6 +1,7 @@
 .fake-window {
-    width: 85%;
-    height: 95%;
+    width: 1080px;
+    /*max-height: 600px;*/
+    height: 530px;
     display: flex;
     flex-direction: column;
     border: 4px solid #232323;
@@ -8,19 +9,28 @@
     background: #000000;
     user-select: none;
     font-family: Lexend, sans-serif;
-    position: absolute;
+    /*position: absolute;*/
     /*transition: 1s ease-in-out all;*/
+    /*scale: 1;*/
+    transform-origin: center;
+
+    top: 8.5%;
+    left: 8.5%;
+    position: relative;
+    margin: auto;
+
+    filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.51));
 }
 
 
 .fake-window.mini {
     transition: 0.25s ease-in-out all;
-    height: 5.5%;
+    height: 50px;
     margin-bottom: -39%;
 }
 .fake-window.maxi {
     transition: 0.25s ease-in-out all;
-    height: 95%;
+    height: 530px;
 }
 .fake-window.close {
     transition: 0s ease-in-out all;

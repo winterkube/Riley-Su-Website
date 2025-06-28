@@ -1,36 +1,5 @@
-// import './App.css';
-// import '@fortawesome/fontawesome-free/css/all.min.css';
-// import Home from "./components/home";
-// import Exp from "./components/exp";
-// import Misc from "./components/misc";
-// import Contact from "./components/contact";
-// // import Nav from "./components/nav";
-// import FAQ from "./components/FAQ";
-// import WindowFrame from './components/WindowFrame';
-// function App() {
-//   return (
-//       <div className="App">
-//           {/*<Nav/>*/}
-//           <WindowFrame title="RileySu.exe">
-//               <div className="start-screen">
-//                   <h1 className="start-title">Riley Su</h1>
-//                   <div className="menu-buttons">
-//                       <button>About</button>
-//                   </div>
-//               </div>
-//           </WindowFrame>
-//           <Home/>
-//           <Exp/>
-//           <Misc/>
-//           <Contact/>
-//           <FAQ/>
-//       </div>
-//   );
-// }
-//
-// src/About.jsx
-// src/App.jsx
-import React, { useState } from 'react';
+
+import React, {useLayoutEffect, useRef, useState} from 'react';
 import WindowFrame from './components/WindowFrame';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -47,9 +16,33 @@ export default function App() {
     const [view, setView] = useState('menu');
     const [angle, setAngle] = useState(0);
 
-    const rotateDown = () => {
-        setAngle(prev => prev - 90);
-    };
+    const containerRef = useRef();
+    const [scale, setScale] = useState(1);
+
+    // Base design dimensions
+    const BASE_W = 1080;
+    const BASE_H = 530;
+
+    useLayoutEffect(() => {
+        function updateScale() {
+            const cw = containerRef.current.clientWidth;
+            const ch = containerRef.current.clientHeight;
+            // We want the window to occupy 90% of available width/height
+            const targetW = cw * 0.85;
+            const targetH = ch * 0.85;
+            // Find the largest uniform scale that fits both dimensions
+            const s = Math.min(targetW / BASE_W, targetH / BASE_H);
+            setScale(s);
+        }
+
+        updateScale();
+        window.addEventListener('resize', updateScale);
+        return () => window.removeEventListener('resize', updateScale);
+    }, []);
+
+    // const rotateDown = () => {
+    //     setAngle(prev => prev - 90);
+    // };
     // The “main menu”
     const Menu = ({ goTo }) => (
         <div className="menu-screen">
@@ -117,7 +110,23 @@ export default function App() {
     };
 
     return (
-        <div className="app-container">
+        // <div className="app-container">
+
+            <div ref={containerRef} className="app-outer">
+                {/*
+        We use transform: scale(...) so everything inside (px fonts, borders, canvas)
+        scales up/down uniformly.
+      */}
+                <div
+                    className="scaler"
+                    style={{
+                        width: BASE_W,
+                        height: BASE_H,
+                        transform: `scale(${scale})`,
+                        transformOrigin: 'top left',
+                    }}
+                >
+
             <WindowFrame title="RileySu.exe">
                 <TransitionGroup component={null}>
                     <CSSTransition
@@ -135,6 +144,8 @@ export default function App() {
                     </CSSTransition>
                 </TransitionGroup>
             </WindowFrame>
-        </div>
+                    </div>
+            </div>
+        // </div>
     );
 }
