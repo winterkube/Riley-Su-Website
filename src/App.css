@@ -36,8 +36,12 @@
 .app-container {
   width: 100vw;
   height: 100vh;
-  background: white;
+  /*background: white;*/
+  background-image: url("./components/images/2.jpg");
+  background-size: cover;
+  background-position: center;
   display: flex;
+
   align-items: center;
   justify-content: center;
   overflow: hidden;
@@ -122,6 +126,8 @@
   width: 250px;
   height: 65px;
   transition: background 0.2s;
+  filter: drop-shadow(0 0 8px black);
+
 }
 .menu-buttons button:hover {
 
@@ -167,6 +173,8 @@
   margin-left:-40px;
   margin-top: 4%;
   z-index: 1;
+  filter: drop-shadow(0 0 8px black);
+
 }
 
 .cube_items {

@@ -9,6 +9,7 @@ import Particles from "./particles";
 export default function WindowFrame({ title = 'RileySu.exe', children }) {
 
 
+
     const [ripples, setRipples] = useState([]);
     const contentRef = useRef(null);
 

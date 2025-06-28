@@ -5,12 +5,14 @@ function Misc({goBack}) {
     return (
         <div className="misc">
 
-            <h2> MISC </h2>
-            <p> I am also passionate in graphic design and have worked on several visual projects throughout the years.
-                Check them out:</p>
+            <h1> MISC </h1>
+            <div className="slides"> Some cool slideshow designs I made:</div>
 
-            <p> Additionally, I produce electronic music in my spare time as a hobby. You can see my works on my
-                newgrounds page:</p>
+            <div className="vids"> Some cool animations I made:</div>
+
+            <div className="buns"> Some cute bunny videos I took:</div>
+
+            <div className="music"> ...And some cool music I made, available on my newgrounds:</div>
 
             <button className="back-button" onClick={goBack}>
                 ← Back

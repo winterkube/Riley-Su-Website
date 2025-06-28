@@ -45,6 +45,7 @@ function Home({ goBack }) {
                 </button>
             </div>
             <div className="home2">
+                <div className={`blackbox ${resumeOpen ? 'open' : ''} `}> </div>
                 <div className={`resume ${resumeOpen ? 'open' : ''} `}>
 
                     <button className="exit" onClick={() => {

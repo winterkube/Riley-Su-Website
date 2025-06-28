@@ -3,13 +3,25 @@
 
 .contact {
     text-align: center;
-    padding: 20px;
+    padding: 30px;
+    filter:drop-shadow(0px 0px 8px black);
+    /*margin-top: 1.5%;*/
 }
 
 .contact h1 {
-
-    font-size: 70px;
+    text-align: center;
+    font-size: 50px;
     font-family: Lexend, serif;
+
+    margin-top: 1%;
+    margin-left: -70%;
+
+    background-image: url("./images/0.jpg");
+    background-size: contain;
+    color: transparent;
+    background-clip: text;
+    /*transition: 1s all;*/
+    animation: color 8s infinite;
 
 }
 
@@ -17,8 +29,16 @@
     font-size: 25px;
     font-family: Lexend, serif;
     text-align: left;
-    padding-left: 7%;
-    padding-right: 30%;
+    /*margin-top: 2%;*/
+    padding-left: 4%;
+    /*padding-right: 30%;*/
+}
+
+.contact img {
+    /*position: absolute;*/
+    width: 40px;
+    height: 40px;
+    margin-bottom: -1%;
 }
 
 .contact p2 {
@@ -33,4 +53,42 @@
     text-align: left;
     padding-left: 7%;
     padding-right: 30%;
+}
+
+.message {
+    background: #444;
+    border: 2px solid #eee;
+    border-radius: 3px;
+    padding: 8px;
+    color: #f19494;
+
+    font-size: 32px;
+    text-align: center;
+    margin-left: 50%;
+    margin-top: -5%;
+    position:absolute;
+}
+.message:hover{
+    color: #f6bdbd;
+
+    background: #646464;
+    cursor: pointer;
+}
+
+.contact a:link {
+    color: #a7d7f1;
+    /*background-color: transparent;*/
+    text-decoration: none;
+}
+
+.contact a:visited {
+    color: #c5a5ff;
+    /*background-color: transparent;*/
+    text-decoration: none;
+}
+
+.contact a:hover {
+    color: #71a5e1;
+    /*background-color: transparent;*/
+    text-decoration: underline;
 }
