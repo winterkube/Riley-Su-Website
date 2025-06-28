@@ -26,24 +26,28 @@ import gitLogo     from './images/git.png';
 import matlabLogo  from './images/matlab.png';
 import mysqlLogo   from './images/mysql.png';
 
-export default function Experience({ goBack }) {
+export default function Experience({ goBack, scale }) {
     const sceneRef = useRef(null);
 
     useEffect(() => {
         // 1) create engine + world
         const engine = Engine.create();
-        engine.gravity.y = 1; // enable gravity
+        engine.gravity.y = 1;
         const world = engine.world;
 
-        // 2) create renderer
+        // 2) renderer, tell it our CSS-scale so it can set pixelRatio
+        //    pixelRatio = (actual canvas pixels) / (CSS pixels) = 1/scale
+        const pixelRatio = 1 / scale;
+
         const render = Render.create({
             element: sceneRef.current,
-            engine: engine,
+            engine,
             options: {
-                width: 1090,
+                width: 1080,
                 height: 650,
                 wireframes: false,
                 background: 'transparent',
+                pixelRatio,         // ← Matter will now auto-scale mouse coords correctly
             },
         });
         Render.run(render);
@@ -51,7 +55,7 @@ export default function Experience({ goBack }) {
         // 3) create runner
         const runner = Runner.create();
         Runner.run(runner, engine);
-
+        const canvas = render.canvas;
         // 4) add walls to contain bodies
         const w = render.options.width,
             h = render.options.height,
@@ -76,7 +80,7 @@ export default function Experience({ goBack }) {
             { img: svLogo,     title: 'Verilog' },
             { img: gitLogo,    title: 'Git' },
             { img: matlabLogo, title: 'Matlab' },
-            { img: mysqlLogo,  title: 'MySQL' },
+            // { img: mysqlLogo,  title: 'MySQL' },
         ];
 
         // helper: preload and return natural sizes
@@ -153,36 +157,34 @@ export default function Experience({ goBack }) {
                     ctx.restore();
                 });
             });
+
             // Hover‐detection: change <canvas> cursor when over a body
             render.canvas.addEventListener('mousemove', (e) => {
                 const rect = render.canvas.getBoundingClientRect();
-                const mousePos = {
-                    x: e.clientX - rect.left,
-                    y: e.clientY - rect.top
-                };
-                // Query.point returns an array of bodies under that point
-                const under = Query.point(bodies, mousePos);
-                render.canvas.style.cursor = under.length ? 'pointer' : 'default';
+                const x = (e.clientX - rect.left) * pixelRatio;
+                const y = (e.clientY - rect.top)  * pixelRatio;
+                const under = Query.point(bodies, { x, y });
+                canvas.style.cursor = under.length ? 'pointer' : 'default';
             });
 
         });
 
-        // 5) Add mouse drag‐and‐drop
         const mouse = Mouse.create(render.canvas);
         const mc = MouseConstraint.create(engine, {
             mouse,
-            constraint: { stiffness: 0.2, render: { visible: false }, zIndex: 5, pointerEvents: true },
+            constraint: { stiffness: 0.2, render: { visible: false } },
         });
-        Composite.add(world, mc);
+        Composite.add(engine.world, mc);
         render.mouse = mouse;
 
         // 9) cleanup on unmount
         return () => {
+            // window.removeEventListener('resize', updatePixelRatio);
             Render.stop(render);
             Runner.stop(runner);
             Composite.clear(world, false);
             Engine.clear(engine);
-            render.canvas.remove();
+            canvas.remove();
             render.textures = {};
         };
     }, []);
@@ -202,7 +204,7 @@ export default function Experience({ goBack }) {
                     // top: 10,
                     // right: 10,
                     zIndex: 1,
-                    background: '#444',
+                    // background: '#444',
                     color: '#eee',
                     border: '2px solid #eee',
                     padding: '6px 12px',

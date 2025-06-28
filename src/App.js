@@ -103,7 +103,7 @@ export default function App() {
     const views = {
         menu: <Menu goTo={setView}/>,
         about: <About goBack={() => setView('menu')}/>,
-        experience: <Experience goBack={() => setView('menu')}/>,
+        experience: <Experience scale={scale} goBack={() => setView('menu')}/>,
         projects: <Projects goBack={() => setView('menu')}/>,
         misc: <Misc goBack={() => setView('menu')}/>,
         contact: <Contact goBack={() => setView('menu')}/>,
