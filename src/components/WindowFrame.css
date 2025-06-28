@@ -39,40 +39,53 @@
 
 .hexs {
     position: absolute;
+    z-index: -2;
 }
 .hexs2 {
     position: absolute;
     left: 4.25%;
     top: -20%;
+    z-index: -2;
+
 }
 .hexs3 {
     position: absolute;
     left: 21%;
     /*top: 0%;*/
+    z-index: -2;
+
 }
 
 .hexs4 {
     position: absolute;
     left: 37.75%;
     top: -20%;
+    z-index: -2;
+
 }
 
 .hexs5 {
     position: absolute;
     left: 54.5%;
     /*top: 0%;*/
+    z-index: -2;
+
 }
 
 .hexs6 {
     position: absolute;
     left: 71.25%;
     top: -20%;
+    z-index: -2;
+
 }
 
 .hexs7 {
     position: absolute;
     left: 88%;
     /*top: 0%;*/
+    z-index: -2;
+
 }
 
 .hexagon {
@@ -82,6 +95,7 @@
     background: #000000;
     margin-bottom: 10px ;
     /*left: 10%;*/
+    z-index: -2;
 }
 
 .hexagon2 {
@@ -93,6 +107,7 @@
     /*margin-bottom: -100% ;*/
     margin-left: 20%;
     /*padding-bottom: -20%;*/
+    z-index: -2;
 }
 .bg {
     /*background-image: url("./images/bg.png");*/
@@ -112,7 +127,7 @@
     transform: translate(-50%, -50%);
     background: radial-gradient( #ff2c00, #d20000, #d691e5, transparent 100%);
     filter: blur(50px);
-    z-index: -1;
+    z-index: -3;
 }
 
 .titlebar {
@@ -182,4 +197,116 @@
 .window-content.maxi {
     transition: 0.25s ease-in-out all;
     transform: scaleY(1);
+}
+.flower-container2 {
+    /*position: absolute;*/
+    /*transform-origin: 230px 230px;*/
+    /*margin-top: 1%;*/
+    /*margin-left: -15%;*/
+    width: 300px;
+    height: 300px;
+    /*border: 1px white solid;*/
+    z-index:0;
+    /*rotate: 0deg;*/
+    /*animation: rotation 20s linear infinite, scaler 10s ease-in-out infinite ;*/
+    /*scale: 1;*/
+    /*rotate: 0deg;*/
+    animation: color3 5s linear infinite;
+    /*filter: drop-shadow(5px 5px 15px #60a8f1) drop-shadow(-5px -5px 15px #94f333) hue-rotate(1deg);*/
+
+
+}
+.flower-container {
+    /*transform-origin: 230px 230px;*/
+    /*margin-top: -10%;*/
+    /*margin-left: -15%;*/
+    width: 300px;
+    height: 300px;
+    border: 1px transparent solid;
+    z-index:0;
+    /*rotate: 0deg;*/
+    /*animation: rotation 20s linear infinite, scaler 10s ease-in-out infinite ;*/
+    /*scale: 1;*/
+    /*rotate: 0deg;*/
+    /*animation: color3 3s infinite;*/
+    /*filter: drop-shadow(5px 5px 15px #60a8f1) drop-shadow(-5px -5px 15px #94f333) hue-rotate(1deg);*/
+
+
+}
+.flower-bg {
+    /*transform-origin: 230px 230px;*/
+    margin-left: 17%;
+    margin-top: 25%;
+    rotate: 0deg;
+    /*animation: rotation 10s linear infinite;*/
+
+
+}
+.flower-bg2 {
+    margin-left: 37%;
+    margin-top: 31%;
+    rotate: 45deg;
+}
+
+
+@keyframes rotation {
+    from {
+        rotate: 0deg;
+    } to {
+    rotate: 360deg;
+          }
+}
+
+@keyframes scaler {
+    0% {
+        scale: 0;
+    }
+50% {
+    scale: 0.8;
+} 100% {
+      scale: 0;
+      }
+}
+
+.ripple {
+    position: absolute;
+    /*width: 16px;*/
+    /*height: 16px;*/
+    margin-left: -165px;  /* center on click point */
+    margin-top:  -483px;
+    /*background: rgba(255, 255, 255, 0.7);*/
+    /*border-radius: 50%;*/
+    pointer-events: none;
+    animation: ripple-effect 1000ms ease-out forwards;
+    z-index: 0;
+}
+@keyframes color3 {
+    from {
+        filter: drop-shadow(5px 5px 15px #60a8f1) drop-shadow(-5px -5px 15px #94f333) hue-rotate(0deg);
+        /*rotate: 0deg;*/
+
+    }  to {
+               filter: drop-shadow(5px 5px 15px #60a8f1) drop-shadow(-5px -5px 15px #94f333) hue-rotate(360deg);
+
+
+           }
+}
+/* grow + fade keyframes */
+@keyframes ripple-effect {
+    0% {
+        transform: scale(0.1);
+        opacity: 1;
+        rotate: 0deg;
+    }
+    60%{
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.9);
+        opacity: 0;
+        rotate: 100deg;
+
+
+
+    }
 }

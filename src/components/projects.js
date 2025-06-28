@@ -179,6 +179,7 @@ export default function Projects({ goBack }) {
     return (
         <>
 
+            <div className="projects">
             <div className="projects-carousel">
                 <h1>PROJECTS</h1>
                 <button className="carousel-btn left" onClick={prev}>‹</button>
@@ -222,7 +223,8 @@ export default function Projects({ goBack }) {
 
 
             </div>
-            <button className="back-button" onClick={goBack}>← Back</button>
-    </>
+                <button className="back-button" onClick={goBack}>← Back</button>
+            </div>
+            </>
     );
 }

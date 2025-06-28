@@ -5,6 +5,8 @@
     text-align: center;
     padding: 0px;
     position: absolute;
+    filter: drop-shadow(0 0 8px black);
+
 }
 
 /* Back‐button styling can live here or inline */
@@ -26,15 +28,18 @@
     transition: 1s all;
     animation: color 8s infinite;
 
-    z-index: 0;
+
+
+
+    z-index: 1;
 }
 
 @keyframes color {
     from {
-        filter: hue-rotate(0deg) drop-shadow(0 0 5px black);
+        filter: hue-rotate(0deg) drop-shadow(0 0 10px black);
 
     }  to {
-           filter: hue-rotate(360deg)drop-shadow(0 0 5px black);
+           filter: hue-rotate(360deg)drop-shadow(0 0 10px black);
        }
 }
 
@@ -56,12 +61,13 @@
     width: 500px;
     font-family: Lexend, serif;
     padding-left: 6.5%;
-    filter: drop-shadow(0 0 5px black);
+    filter: drop-shadow(0 0 4px black);
     z-index: 0;
     pointer-events: none;
 }
 
 .scene {
+    margin-top: -13.5%;
     z-index: 5;
 }
 

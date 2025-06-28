@@ -41,7 +41,7 @@ export default function Experience({ goBack }) {
             engine: engine,
             options: {
                 width: 1090,
-                height: 500,
+                height: 650,
                 wireframes: false,
                 background: 'transparent',
             },
@@ -102,8 +102,8 @@ export default function Experience({ goBack }) {
             const cols = 4;
             // 4) Create one body per skill, with fillStyle only
             const bodies = skills.map((s, i) => {
-                const x = 200 + 400 * Math.random() + (i % cols) * (SIZE + 10);
-                const y = 20  + Math.floor(i / cols) * (SIZE + 10);
+                const x = 100 + 500 * Math.random() + (i % cols) * (SIZE + 10);
+                const y = 100 * Math.random()  + Math.floor(i / cols) * (SIZE + 10);
                 const b = Bodies.rectangle(x, y, SIZE, SIZE + 50, {
                     restitution: 0.6,
                     friction: 0.1,
@@ -122,6 +122,7 @@ export default function Experience({ goBack }) {
                 b.mySprite = s.imgElement;
                 return b;
             });
+
             Composite.add(world, bodies);
 
 

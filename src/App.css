@@ -66,11 +66,15 @@
 }
 
 @keyframes color2 {
-  from {
-    filter: hue-rotate(0deg) drop-shadow( 0 0 0.5rem #626262);
-    
-  }  to {
-       filter: hue-rotate(360deg) drop-shadow( 0 0 0.5rem #949494);
+  0% {
+    filter: hue-rotate(0deg) drop-shadow( 0 0 0.5rem #707070);
+
+    50% {
+      filter: hue-rotate(180deg) drop-shadow( 0 0 0.5rem #d3d3d3);
+
+    }
+  }  100% {
+       filter: hue-rotate(360deg)  drop-shadow( 0 0 0.5rem #707070);
 
        }
 }
@@ -148,6 +152,8 @@
   font-family: Lexend, serif;
   font-size: 20px;
   transition: background 0.2s;
+  /*filter: drop-shadow(0 0 8px black);*/
+
 }
 .back-button:hover {
   background: #666;

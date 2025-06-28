@@ -1,0 +1,179 @@
+.flowers{
+
+}
+
+.petal1 {
+
+    width: 150px;
+    height: 150px;
+    aspect-ratio: 1;
+    /*background: black;*/
+    /*transform-origin: 150px 150px;*/
+    transform: scale(1,1);
+    rotate: 0deg;
+    /*border-radius: 100% 10% 100% 10%;*/
+    /*background-image: linear-gradient(#a5fc6b, #a5e6ec);*/
+    background: black;
+
+    background-size: cover;
+
+
+    /*mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;*/
+    z-index: 0;
+    position: absolute;
+
+    top: 40%;
+    left: 10%;
+    border-radius: 100% 0;
+
+
+
+}
+.petal1::before,
+.petal1::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 100% 0;
+    background: inherit;
+    translate: 30% -30%;
+    transform: scale(-1, -1);
+    opacity: 1;
+}
+.petal1::before {
+    transform: scale(1, 1);
+    opacity: 1;
+    translate: -30% 30%;
+}
+/*.petal1::after {*/
+/*    translate: 0 -55%;*/
+/*}*/
+
+.petal2 {
+
+    width: 150px;
+    height: 150px;
+    aspect-ratio: 1;
+    /*background: black;*/
+    /*transform-origin: 150px 150px;*/
+    transform: scale(1,1);
+    rotate: 0deg;
+    /*border-radius: 100% 10% 100% 10%;*/
+    background-image: url("./images/1.jpg");
+    /*background: black;*/
+
+    background-size: cover;
+
+
+    /*mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;*/
+    /*z-index: 0;*/
+    position: absolute;
+
+    top: 40%;
+    left: 10%;
+    border-radius: 100% 0;
+
+    scale: 0.7;
+    z-index: 1;
+
+}
+.petal2::before,
+.petal2::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 100% 0;
+    background: inherit;
+    translate: 30% -30%;
+    transform: scale(-1, -1);
+    opacity: 1;
+}
+.petal2::before {
+    transform: scale(1, 1);
+    opacity: 1;
+    translate: -30% 30%;
+}
+
+.petal3 {
+
+    width: 150px;
+    aspect-ratio: 1;
+    /*background: black;*/
+    /*transform: translate(80px, 0px);*/
+    /*transform-origin: 28px 35px;*/
+
+    rotate: 0deg;
+    /*transform: scale(-1, -1);*/
+
+    border-radius: 0 100%;
+    background-size: cover;
+    background: black;
+    /*background-image: url("./images/1.jpg");*/
+    /*mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;*/
+    z-index: 0;
+    position: absolute;
+    /*top: 39%;*/
+    left: 10%;
+}
+
+.petal3::before,
+.petal3::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 100% 0;
+    background: inherit;
+    translate: -30% -30%;
+    transform: scale(1, -1);
+
+}
+.petal3::before {
+    transform: scale(-1, 1);
+    opacity: 1;
+    translate: 30% 30%;
+}
+
+
+.petal4 {
+
+    width: 150px;
+    aspect-ratio: 1;
+    /*background: black;*/
+    /*transform: translate(80px, 0px);*/
+    /*transform-origin: 28px 35px;*/
+
+    rotate: 0deg;
+    /*transform: scale(-1, -1);*/
+
+    border-radius: 0 100%;
+    background-size: cover;
+    /*background: black;*/
+    background-image: url("./images/1.jpg");
+    /*mask: radial-gradient(#0000 71%, #000 72%) 10000% 10000%/99.5% 99.5%;*/
+    z-index: 1;
+    scale: 0.7;
+    position: absolute;
+    /*top: 39%;*/
+    left: 10%;
+}
+
+.petal4::before,
+.petal4::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 100% 0;
+    background: inherit;
+    translate: -30% -30%;
+    transform: scale(1, -1);
+
+}
+.petal4::before {
+    transform: scale(-1, 1);
+    opacity: 1;
+    translate: 30% 30%;
+}
