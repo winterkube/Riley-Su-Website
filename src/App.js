@@ -28,8 +28,8 @@ export default function App() {
             const cw = containerRef.current.clientWidth;
             const ch = containerRef.current.clientHeight;
             // We want the window to occupy 90% of available width/height
-            const targetW = cw * 0.85;
-            const targetH = ch * 0.85;
+            const targetW = cw * 0.9;
+            const targetH = ch * 0.9;
             // Find the largest uniform scale that fits both dimensions
             const s = Math.min(targetW / BASE_W, targetH / BASE_H);
             setScale(s);
@@ -123,10 +123,11 @@ export default function App() {
                         width: BASE_W,
                         height: BASE_H,
                         transform: `scale(${scale})`,
-                        transformOrigin: 'top left',
+                        transformOrigin: 'center',
                     }}
                 >
 
+                    <div className="window-container" >
             <WindowFrame title="RileySu.exe">
                 <TransitionGroup component={null}>
                     <CSSTransition
@@ -144,6 +145,7 @@ export default function App() {
                     </CSSTransition>
                 </TransitionGroup>
             </WindowFrame>
+                    </div>
                     </div>
             </div>
         // </div>
