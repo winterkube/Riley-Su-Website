@@ -24,9 +24,9 @@
 
 .fake-window.mini {
     transition: 0.25s ease-in-out all;
-    height: 5vh;
+    height: 2rem;
 
-    margin-top: 44%;
+    margin-top: 46%;
 }
 .fake-window.maxi {
     transition: 0.25s ease-in-out all;
