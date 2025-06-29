@@ -1,5 +1,5 @@
 
-import React, {useLayoutEffect, useRef, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useRef, useState} from 'react';
 import WindowFrame from './components/WindowFrame';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
@@ -13,6 +13,17 @@ import './App.css';  // for the .app-container and .menu-styles
 
 
 export default function App() {
+
+    const [isMobile, setIsMobile] = useState(false);
+
+    // on mount, sniff the userAgent for a mobile device
+    useEffect(() => {
+        const ua = navigator.userAgent || navigator.vendor || window.opera;
+        if (/Mobi|Android|iPhone|iPad|iPod/i.test(ua)) {
+            setIsMobile(true);
+        }
+    }, []);
+
     const [view, setView] = useState('menu');
     const [angle, setAngle] = useState(0);
 
@@ -154,6 +165,12 @@ export default function App() {
         <div ref={containerRef} className="app-outer">
             <div className="app-bg1"></div>
             <div className="app-bg2"></div>
+
+            {isMobile && (
+                <div className="mobile-warning">
+                    ⚠️ ME NOT MOBILE SUPPORTED YET!!
+                </div>
+            )}
 
 
             {/*
