@@ -57,7 +57,7 @@ export default function Projects({ goBack }) {
             title: 'RISC Machine Simulator',
             description:
                 'Simulated a RISC CPU in Verilog and Quartus on a DE1-SoC for CPEN211.',
-            link: 'https://github.com/ubc-cpen211/lab-7-l1e-winterkube',
+            link: 'https://github.com/winterkube/lab-7-l1e-winterkube-public-ver/',
         },
     ];
 
