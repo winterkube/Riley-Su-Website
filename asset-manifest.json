@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Riley-Su-Website/static/css/main.a0bf1ff4.css",
-    "main.js": "/Riley-Su-Website/static/js/main.ae46b4f7.js",
+    "main.css": "/Riley-Su-Website/static/css/main.050de15c.css",
+    "main.js": "/Riley-Su-Website/static/js/main.12eab12a.js",
     "static/js/453.99dcf01f.chunk.js": "/Riley-Su-Website/static/js/453.99dcf01f.chunk.js",
     "static/media/fizzle.mp4": "/Riley-Su-Website/static/media/fizzle.b5d04e2e4ae7dde1a236.mp4",
     "static/media/enkindleshort.mp4": "/Riley-Su-Website/static/media/enkindleshort.15d50b6995e98be92f44.mp4",
@@ -55,12 +55,12 @@
     "static/media/risc.png": "/Riley-Su-Website/static/media/risc.bad8dfa147a848dc781b.png",
     "static/media/JavaScript.png": "/Riley-Su-Website/static/media/JavaScript.266bd9fb2663dcc057b4.png",
     "index.html": "/Riley-Su-Website/index.html",
-    "main.a0bf1ff4.css.map": "/Riley-Su-Website/static/css/main.a0bf1ff4.css.map",
-    "main.ae46b4f7.js.map": "/Riley-Su-Website/static/js/main.ae46b4f7.js.map",
+    "main.050de15c.css.map": "/Riley-Su-Website/static/css/main.050de15c.css.map",
+    "main.12eab12a.js.map": "/Riley-Su-Website/static/js/main.12eab12a.js.map",
     "453.99dcf01f.chunk.js.map": "/Riley-Su-Website/static/js/453.99dcf01f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a0bf1ff4.css",
-    "static/js/main.ae46b4f7.js"
+    "static/css/main.050de15c.css",
+    "static/js/main.12eab12a.js"
   ]
 }
