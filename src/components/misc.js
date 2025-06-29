@@ -9,7 +9,7 @@ import internet from './images/internet.png';
 
 import ceo from './videos/CEO anim.mp4';
 import aliens from './videos/aliens.mp4';
-import alg from './videos/algebraTrialVid.mp4';
+// import alg from './videos/algebraTrialVid.mp4';
 import enk from './videos/enkindleshort.mp4';
 import grass from './videos/grass.mp4';
 import fizzle from './videos/fizzle.mp4';
@@ -35,7 +35,6 @@ function Misc({goBack}) {
     const videos1 = [
         { src: ceo },
         { src: aliens},
-        { src: alg },
         { src: enk},
         { src: grass},
         { src: fizzle},
