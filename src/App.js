@@ -21,6 +21,8 @@ export default function App() {
 
     const [ratio, setRatio] = useState(0.8);     // default 0.8
     const MIN_RATIO = 0.3, MAX_RATIO = 0.9;
+    const handleMaximize = () => setRatio(MAX_RATIO);
+    
 
     // Compute the dynamic scale factor each render
     const [scale, setScale] = useState(1);
@@ -148,68 +150,73 @@ export default function App() {
     return (
         // <div className="app-container">
 
-            <div ref={containerRef} className="app-outer">
-                {/*
+
+        <div ref={containerRef} className="app-outer">
+            <div className="app-bg1"></div>
+            <div className="app-bg2"></div>
+
+
+            {/*
         We use transform: scale(...) so everything inside (px fonts, borders, canvas)
         scales up/down uniformly.
       */}
+            <div
+                className="scaler"
+                style={{
+                    width: 1080,
+                    height: 530,
+                    transform: `scale(${scale})`,
+                    transformOrigin: 'center',
+                    position: 'relative'
+                }}
+            >
                 <div
-                    className="scaler"
-                    style={{
-                        width: 1080,
-                        height: 530,
-                        transform: `scale(${scale})`,
-                        transformOrigin: 'center',
-                        position: 'relative'
-                    }}
-                >
-                    <div
-                        className="resizer left"
-                        data-axis="x"
-                        data-sign="-1"
-                        onMouseDown={startResize}
-                    />
-                    <div
-                        className="resizer right"
-                        data-axis="x"
-                        data-sign="1"
-                        onMouseDown={startResize}
-                    />
-                    <div
-                        className="resizer top"
-                        data-axis="y"
-                        data-sign="-1"
-                        onMouseDown={startResize}
-                    />
-                    <div
-                        className="resizer bottom"
-                        data-axis="y"
-                        data-sign="1"
-                        onMouseDown={startResize}
-                    />
-                    <div className="window-container">
+                    className="resizer left"
+                    data-axis="x"
+                    data-sign="-1"
+                    onMouseDown={startResize}
+                />
+                <div
+                    className="resizer right"
+                    data-axis="x"
+                    data-sign="1"
+                    onMouseDown={startResize}
+                />
+                <div
+                    className="resizer top"
+                    data-axis="y"
+                    data-sign="-1"
+                    onMouseDown={startResize}
+                />
+                <div
+                    className="resizer bottom"
+                    data-axis="y"
+                    data-sign="1"
+                    onMouseDown={startResize}
+                />
+                <div className="window-container">
 
 
-                        <WindowFrame title="RileySu.exe">
-                            <TransitionGroup component={null}>
-                                <CSSTransition
-                                    key={view}
-                                    timeout={300}
-                                    classNames="screen"
-                                >
-                                    {/*
+                    <WindowFrame title="RileySu.exe" onMaximize={handleMaximize}>
+                        <TransitionGroup component={null}>
+                            <CSSTransition
+                                key={view}
+                                timeout={300}
+                                classNames="screen"
+                            >
+                                {/*
               We need a single DOM node to attach the transition classes to,
               so wrap the dynamic view in a div.screen-wrapper
             */}
-                                    <div className="screen-wrapper">
-                                        {views[view]}
-                                    </div>
-                                </CSSTransition>
-                            </TransitionGroup>
-                        </WindowFrame>
-                    </div>
+                                <div className="screen-wrapper">
+                                    {views[view]}
+                                </div>
+                            </CSSTransition>
+                        </TransitionGroup>
+                    </WindowFrame>
                 </div>
             </div>
+        </div>
         // </div>
     );
 }

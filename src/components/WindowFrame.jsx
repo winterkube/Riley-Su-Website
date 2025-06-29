@@ -6,7 +6,7 @@ import Particles from "./particles";
 
 
 
-export default function WindowFrame({ title = 'RileySu.exe', children }) {
+export default function WindowFrame({ title = 'RileySu.exe', children , onMaximize}) {
 
 
 
@@ -65,7 +65,7 @@ export default function WindowFrame({ title = 'RileySu.exe', children }) {
     const maximize = () => {
         setMaximized(true);
         setMinimized(false);
-
+        if (onMaximize) onMaximize();
     }
     const close = () => {
         if (window.confirm("You sure?")) {

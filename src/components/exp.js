@@ -26,6 +26,12 @@ import gitLogo     from './images/git.png';
 import matlabLogo  from './images/matlab.png';
 import mysqlLogo   from './images/mysql.png';
 
+import docsLogo from './images/docs.png';
+import sheetsLogo from './images/sheets.png';
+import slidesLogo from './images/slides.png';
+import canvaLogo from './images/canva.png';
+import davinciLogo from './images/davinci.png';
+
 export default function Experience({ goBack, scale }) {
     const sceneRef = useRef(null);
 
@@ -69,18 +75,24 @@ export default function Experience({ goBack, scale }) {
 
         // 5) define skills and preload images
         const raw = [
-            { img: htmlLogo,   title: 'HTML' },
-            { img: cssLogo,    title: 'CSS' },
-            { img: jsLogo,     title: 'JavaScript' },
-            { img: reactLogo,  title: 'React' },
-            { img: javaLogo,   title: 'Java' },
-            { img: pythonLogo, title: 'Python' },
-            { img: cLogo,      title: 'C' },
-            { img: cppLogo,    title: 'C++' },
-            { img: svLogo,     title: 'Verilog' },
-            { img: gitLogo,    title: 'Git' },
-            { img: matlabLogo, title: 'Matlab' },
-            // { img: mysqlLogo,  title: 'MySQL' },
+            { img: htmlLogo,   title: 'HTML',        color: 'rgba(120,166,180,0.9)' },  // light-blue
+            { img: cssLogo,    title: 'CSS',         color: 'rgba(120,166,180,0.9)' },
+            { img: jsLogo,     title: 'JavaScript',  color: 'rgba(120,166,180,0.9)' },
+            { img: reactLogo,  title: 'React',      color: 'rgba(120,166,180,0.9)' },
+            { img: javaLogo,   title: 'Java',        color: 'rgba(120,166,180,0.9)' },
+            { img: pythonLogo, title: 'Python',      color: 'rgba(120,166,180,0.9)' },
+            { img: cLogo,      title: 'C',           color: 'rgba(120,166,180,0.9)' },
+            { img: cppLogo,    title: 'C++',         color: 'rgba(120,166,180,0.9)' },
+            { img: svLogo,     title: 'Verilog',     color: 'rgba(120,166,180,0.9)' },
+            { img: gitLogo,    title: 'Git',        color: 'rgba(120,166,180,0.9)' },
+            { img: matlabLogo, title: 'Matlab',      color: 'rgba(120,166,180,0.9)' },
+                // new “office” skills with light-purple
+            { img: docsLogo,   title: 'Google Docs',  color: 'rgba(180,152,236,0.9)' },
+            { img: sheetsLogo, title: 'Google Sheets',color: 'rgba(180,152,236,0.9)' },
+            { img: slidesLogo, title: 'Google Slides',color: 'rgba(180,152,236,0.9)' },
+            { img: canvaLogo, title: 'Canva',color: 'rgba(180,152,236,0.9)' },
+            { img: davinciLogo, title: 'Davinci Resolve',color: 'rgba(180,152,236,0.9)' },
+
         ];
 
         // helper: preload and return natural sizes
@@ -102,17 +114,17 @@ export default function Experience({ goBack, scale }) {
                 })
             )
         ).then((skills) => {
-            const SIZE = 100;
+            const SIZE = 90;
             const cols = 4;
             // 4) Create one body per skill, with fillStyle only
             const bodies = skills.map((s, i) => {
                 const x = 100 + 500 * Math.random() + (i % cols) * (SIZE + 10);
                 const y = 100 * Math.random()  + Math.floor(i / cols) * (SIZE + 10);
-                const b = Bodies.rectangle(x, y, SIZE, SIZE + 50, {
+                const b = Bodies.rectangle(x, y, SIZE + 15, SIZE + 50, {
                     restitution: 0.6,
                     friction: 0.1,
                     render: {
-                        fillStyle: '#78a6b4',    // light-blue box
+                        fillStyle: s.color,      // now each skill picks its own color
                         strokeStyle: '#fff',
                         opacity: 0.9,
                         // borderWidth: 2,
@@ -151,7 +163,7 @@ export default function Experience({ goBack, scale }) {
                     ctx.textAlign    = 'center';
                     ctx.textBaseline = 'top';
 
-                    ctx.fillText(b.label, SIZE/2 - 50, SIZE - 50,SIZE*0.9);
+                    ctx.fillText(b.label, SIZE/2 - 45, SIZE - 50,SIZE);
                      // ctx.translate(x, y);
                      // ctx.rotate(angle);
                     ctx.restore();
