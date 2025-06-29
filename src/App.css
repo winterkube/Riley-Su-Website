@@ -91,7 +91,7 @@
   opacity: 0;
   background-image: url("./components/images/4.jpg");
   background-size: cover;
-  animation: bg-osc 6s infinite ease-out;
+  animation: bg-osc 5s infinite ease-in-out;
   position: absolute;
 }
 

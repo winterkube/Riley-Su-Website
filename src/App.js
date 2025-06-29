@@ -30,7 +30,7 @@ export default function App() {
     const containerRef = useRef();
 
 
-    const [ratio, setRatio] = useState(0.8);     // default 0.8
+    const [ratio, setRatio] = useState(0.85);     // default 0.8
     const MIN_RATIO = 0.3, MAX_RATIO = 0.9;
     const handleMaximize = () => setRatio(MAX_RATIO);
     
@@ -164,7 +164,7 @@ export default function App() {
 
         <div ref={containerRef} className="app-outer">
             <div className="app-bg1"></div>
-            <div className="app-bg2"></div>
+            {/*<div className="app-bg2"></div>*/}
 
             {isMobile && (
                 <div className="mobile-warning">
