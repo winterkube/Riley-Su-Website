@@ -1,8 +1,10 @@
 
 .window-container {
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   /*position: fixed;*/
+  /*max-width: 50%;*/
+  /*max-height: 50%;*/
+
 }
 
 .screen-wrapper {
@@ -62,7 +64,7 @@
   background-image: url("./components/images/2.jpg");
   background-size: cover;
   background-position: center;
-  /*display: flex;*/
+  display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;

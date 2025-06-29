@@ -4,29 +4,19 @@
     height: 530px;
     display: flex;
     flex-direction: column;
+
     border: 4px solid #232323;
     box-shadow: 0 0 0 4px #888;
     background: #000000;
     user-select: none;
     font-family: Lexend, sans-serif;
-    /*position: absolute;*/
     /*transition: 1s ease-in-out all;*/
     /*scale: 1;*/
     transform-origin: center;
 
 
-    /*padding-top: 5%;*/
-    top: 2%;
-    left: 10%;
-    /*right: 50%;*/
-    /*max-height: 100%;*/
-    /*max-width: 100%;*/
-    /**/
-    position: fixed;
-    /*margin-left: auto;*/
-    /*margin-right: auto;*/
-    /*width: 50%;*/
 
+    /*position: absolute;*/
 
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.51));
 }
@@ -34,13 +24,14 @@
 
 .fake-window.mini {
     transition: 0.25s ease-in-out all;
-    height: 10vh;
+    height: 5vh;
 
     margin-top: 44%;
 }
 .fake-window.maxi {
     transition: 0.25s ease-in-out all;
     height: 530px;
+
     /*margin-left: auto;*/
     /*margin-right: auto;*/
 }
