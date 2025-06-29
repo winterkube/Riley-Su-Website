@@ -187,7 +187,7 @@ export default function Experience({ goBack, scale }) {
             canvas.remove();
             render.textures = {};
         };
-    }, []);
+    }, [scale]);
 
     return (
         <div className="exp"

@@ -15,7 +15,7 @@
     transform-origin: center;
 
 
-
+    /*top: 1%;*/
     /*position: absolute;*/
 
     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.51));
@@ -286,7 +286,7 @@
     /*width: 16px;*/
     /*height: 16px;*/
     margin-left: -165px;  /* center on click point */
-    margin-top:  -470px;
+    margin-top:  -480px;
     /*background: rgba(255, 255, 255, 0.7);*/
     /*border-radius: 50%;*/
     pointer-events: none;

@@ -17,32 +17,68 @@ export default function App() {
     const [angle, setAngle] = useState(0);
 
     const containerRef = useRef();
+
+
+    const [ratio, setRatio] = useState(0.8);     // default 0.8
+    const MIN_RATIO = 0.3, MAX_RATIO = 0.9;
+
+    // Compute the dynamic scale factor each render
     const [scale, setScale] = useState(1);
-
-    // Base design dimensions
-    const BASE_W = 1080;
-    const BASE_H = 530;
-
     useLayoutEffect(() => {
-        function updateScale() {
+        const cw = containerRef.current.clientWidth;
+        const ch = containerRef.current.clientHeight;
+        const targetW = cw * ratio;
+        const targetH = ch * ratio;
+        const BASE_W = 1080, BASE_H = 530;
+        const s = Math.min(targetW/BASE_W, targetH/BASE_H);
+        setScale(s);
+    }, [ratio]);
+
+
+    const isDragging = useRef(false);
+    const startPos   = useRef(0);
+    const startRatio = useRef(ratio);
+    const axisRef    = useRef('x');   // 'x' or 'y'
+    const signRef    = useRef(1);     // +1 or -1
+
+    // global mousemove/up for resizing
+    useLayoutEffect(() => {
+        const onMouseMove = (e) => {
+            if (!isDragging.current) return;
             const cw = containerRef.current.clientWidth;
             const ch = containerRef.current.clientHeight;
-            // We want the window to occupy 90% of available width/height
-            const targetW = cw * 0.8;
-            const targetH = ch * 0.8;
-            // Find the largest uniform scale that fits both dimensions
-            const s = Math.min(targetW / BASE_W, targetH / BASE_H);
-            setScale(s);
-        }
+            // how far we've moved along the active axis
+            const delta = axisRef.current === 'x'
+                ? e.clientX - startPos.current
+                : e.clientY - startPos.current;
+            // apply sign and normalize by container dimension
+            let newRatio = startRatio.current +
+                signRef.current * (delta / (axisRef.current === 'x' ? cw : ch));
+            newRatio = Math.max(MIN_RATIO, Math.min(MAX_RATIO, newRatio));
+            setRatio(newRatio);
+        };
+        const onMouseUp = () => {
+            isDragging.current = false;
+        };
 
-        updateScale();
-        window.addEventListener('resize', updateScale);
-        return () => window.removeEventListener('resize', updateScale);
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup',   onMouseUp);
+        return () => {
+            window.removeEventListener('mousemove', onMouseMove);
+            window.removeEventListener('mouseup',   onMouseUp);
+        };
     }, []);
 
-    // const rotateDown = () => {
-    //     setAngle(prev => prev - 90);
-    // };
+    // start dragging: figure out axis & sign from data-attrs
+    const startResize = (e) => {
+        axisRef.current = e.currentTarget.dataset.axis; // 'x' or 'y'
+        signRef.current = parseFloat(e.currentTarget.dataset.sign); // +1 or -1
+        startPos.current = axisRef.current === 'x' ? e.clientX : e.clientY;
+        startRatio.current = ratio;
+        isDragging.current = true;
+        e.preventDefault();
+    };
+
     // The “main menu”
     const Menu = ({ goTo }) => (
         <div className="menu-screen">
@@ -120,33 +156,59 @@ export default function App() {
                 <div
                     className="scaler"
                     style={{
-                        width: BASE_W,
-                        height: BASE_H,
+                        width: 1080,
+                        height: 530,
                         transform: `scale(${scale})`,
                         transformOrigin: 'center',
+                        position: 'relative'
                     }}
                 >
+                    <div
+                        className="resizer left"
+                        data-axis="x"
+                        data-sign="-1"
+                        onMouseDown={startResize}
+                    />
+                    <div
+                        className="resizer right"
+                        data-axis="x"
+                        data-sign="1"
+                        onMouseDown={startResize}
+                    />
+                    <div
+                        className="resizer top"
+                        data-axis="y"
+                        data-sign="-1"
+                        onMouseDown={startResize}
+                    />
+                    <div
+                        className="resizer bottom"
+                        data-axis="y"
+                        data-sign="1"
+                        onMouseDown={startResize}
+                    />
+                    <div className="window-container">
 
-                    <div className="window-container" >
-            <WindowFrame title="RileySu.exe">
-                <TransitionGroup component={null}>
-                    <CSSTransition
-                        key={view}
-                        timeout={300}
-                        classNames="screen"
-                    >
-                        {/*
+
+                        <WindowFrame title="RileySu.exe">
+                            <TransitionGroup component={null}>
+                                <CSSTransition
+                                    key={view}
+                                    timeout={300}
+                                    classNames="screen"
+                                >
+                                    {/*
               We need a single DOM node to attach the transition classes to,
               so wrap the dynamic view in a div.screen-wrapper
             */}
-                        <div className="screen-wrapper">
-                            {views[view]}
-                        </div>
-                    </CSSTransition>
-                </TransitionGroup>
-            </WindowFrame>
+                                    <div className="screen-wrapper">
+                                        {views[view]}
+                                    </div>
+                                </CSSTransition>
+                            </TransitionGroup>
+                        </WindowFrame>
                     </div>
-                    </div>
+                </div>
             </div>
         // </div>
     );
