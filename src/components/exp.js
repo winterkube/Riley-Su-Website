@@ -118,7 +118,7 @@ export default function Experience({ goBack, scale }) {
             const cols = 4;
             // 4) Create one body per skill, with fillStyle only
             const bodies = skills.map((s, i) => {
-                const x = 100 + 500 * Math.random() + (i % cols) * (SIZE + 10);
+                const x = 150 + 500 * Math.random() + (i % cols) * (SIZE + 10);
                 const y = 100 * Math.random()  + Math.floor(i / cols) * (SIZE + 10);
                 const b = Bodies.rectangle(x, y, SIZE + 15, SIZE + 50, {
                     restitution: 0.6,
