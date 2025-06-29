@@ -28,8 +28,8 @@ export default function App() {
             const cw = containerRef.current.clientWidth;
             const ch = containerRef.current.clientHeight;
             // We want the window to occupy 90% of available width/height
-            const targetW = cw * 0.5;
-            const targetH = ch * 0.5;
+            const targetW = cw * 0.8;
+            const targetH = ch * 0.8;
             // Find the largest uniform scale that fits both dimensions
             const s = Math.min(targetW / BASE_W, targetH / BASE_H);
             setScale(s);
