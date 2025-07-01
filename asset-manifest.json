@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Riley-Su-Website/static/css/main.050de15c.css",
-    "main.js": "/Riley-Su-Website/static/js/main.12eab12a.js",
+    "main.css": "/Riley-Su-Website/static/css/main.a6097648.css",
+    "main.js": "/Riley-Su-Website/static/js/main.1cc335c0.js",
     "static/js/453.99dcf01f.chunk.js": "/Riley-Su-Website/static/js/453.99dcf01f.chunk.js",
     "static/media/fizzle.mp4": "/Riley-Su-Website/static/media/fizzle.b5d04e2e4ae7dde1a236.mp4",
     "static/media/enkindleshort.mp4": "/Riley-Su-Website/static/media/enkindleshort.15d50b6995e98be92f44.mp4",
@@ -31,13 +31,13 @@
     "static/media/python.png": "/Riley-Su-Website/static/media/python.dea924d737bb84eb9ce3.png",
     "static/media/log logo.png": "/Riley-Su-Website/static/media/log logo.a0bbb34d37d28e8593a3.png",
     "static/media/stormhacks.png": "/Riley-Su-Website/static/media/stormhacks.0fab0663edb76c9a0377.png",
-    "static/media/Riley Su Resume.pdf": "/Riley-Su-Website/static/media/Riley Su Resume.a86cc04fbc24c52d4bc3.pdf",
-    "static/media/resume_img.png": "/Riley-Su-Website/static/media/resume_img.6552528b1d19b3aaba6f.png",
+    "static/media/Riley Su Resume.pdf": "/Riley-Su-Website/static/media/Riley Su Resume.f1d70ecef2a5de670a2d.pdf",
     "static/media/paper.png": "/Riley-Su-Website/static/media/paper.d19e85dcc41141f3dc46.png",
     "static/media/1.jpg": "/Riley-Su-Website/static/media/1.e1e44be8ebcc87777ce8.jpg",
     "static/media/4.jpg": "/Riley-Su-Website/static/media/4.b3a125bd71e4a24b4c1a.jpg",
     "static/media/3.jpg": "/Riley-Su-Website/static/media/3.d5de4c3dd7be3ab60798.jpg",
     "static/media/0.jpg": "/Riley-Su-Website/static/media/0.e362dc064616726a9dd1.jpg",
+    "static/media/resume_img.png": "/Riley-Su-Website/static/media/resume_img.7b601d4303db578b8808.png",
     "static/media/2.jpg": "/Riley-Su-Website/static/media/2.9f8cfb31c500922fb96e.jpg",
     "static/media/M7 RWH E-Poster (5).png": "/Riley-Su-Website/static/media/M7 RWH E-Poster (5).32e4add5f8c0d6386e06.png",
     "static/media/htmllogo.png": "/Riley-Su-Website/static/media/htmllogo.2afff5652c23b3f3113e.png",
@@ -55,12 +55,12 @@
     "static/media/risc.png": "/Riley-Su-Website/static/media/risc.bad8dfa147a848dc781b.png",
     "static/media/JavaScript.png": "/Riley-Su-Website/static/media/JavaScript.266bd9fb2663dcc057b4.png",
     "index.html": "/Riley-Su-Website/index.html",
-    "main.050de15c.css.map": "/Riley-Su-Website/static/css/main.050de15c.css.map",
-    "main.12eab12a.js.map": "/Riley-Su-Website/static/js/main.12eab12a.js.map",
+    "main.a6097648.css.map": "/Riley-Su-Website/static/css/main.a6097648.css.map",
+    "main.1cc335c0.js.map": "/Riley-Su-Website/static/js/main.1cc335c0.js.map",
     "453.99dcf01f.chunk.js.map": "/Riley-Su-Website/static/js/453.99dcf01f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.050de15c.css",
-    "static/js/main.12eab12a.js"
+    "static/css/main.a6097648.css",
+    "static/js/main.1cc335c0.js"
   ]
 }
