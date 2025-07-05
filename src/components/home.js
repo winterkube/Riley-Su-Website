@@ -48,6 +48,7 @@ function Home({ goBack }) {
                 <div className={`blackbox ${resumeOpen ? 'open' : ''} `}> </div>
                 <div className={`resume ${resumeOpen ? 'open' : ''} `}>
 
+
                     <button className="exit" onClick={() => {
                         setResumeOpen(false)
                     }}>
