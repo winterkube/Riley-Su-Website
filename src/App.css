@@ -91,7 +91,7 @@
   opacity: 0;
   background-image: url("./components/images/4.jpg");
   background-size: cover;
-  animation: bg-osc 6s infinite ease-out;
+  animation: bg-osc 5s infinite ease-in-out;
   position: absolute;
 }
 
@@ -396,3 +396,19 @@
 /*.cube_items.turn-left {*/
 /*  transform: translateZ(-300px) rotateY(90deg);*/
 /*!*}*!*/
+
+/* a fixed banner at the top of the viewport, only on mobile */
+.mobile-warning {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffcc00;
+  color: #333;
+  text-align: center;
+  padding: 8px;
+  font-family: Lexend, "serif";
+  font-size: 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
